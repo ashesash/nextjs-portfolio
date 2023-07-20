@@ -5,7 +5,7 @@ import Image from 'next/image'
 import About from '../components/About.jsx'
 import Skills from '../components/Skills.jsx'
 import Projects from '../components/Projects.jsx'
-
+import Contact from '../components/Contact.jsx'
 
 
 export default function Home() {
@@ -22,6 +22,7 @@ export default function Home() {
       <About />
       <Skills />
       <Projects />
+      <Contact />
     </div>
   )
 }
