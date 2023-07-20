@@ -4,6 +4,7 @@ import Main from '../components/Main.jsx'
 import Image from 'next/image'
 import About from '../components/About.jsx'
 import Skills from '../components/Skills.jsx'
+import Projects from '../components/Projects.jsx'
 
 
 
@@ -20,6 +21,7 @@ export default function Home() {
       <Main />
       <About />
       <Skills />
+      <Projects />
     </div>
   )
 }
