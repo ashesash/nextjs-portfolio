@@ -7,10 +7,10 @@ const Main = () => {
         <div id='home' className='w-full h-screen text-center'>
             <div className='max-w-[1240px] w-full h-full mx-auto p-2 flex justify-center items-center'>
                 <div>
-                    <p className='uppercase text-sm tracking-widest text-gray-500 py-2'>Let&#39s build great products</p>
-                    <h1 className='py-4 text-gray-700'>Hi, I&#39m <span className='text-[#4d797b]'>Ash!</span></h1>
+                    <p className='uppercase text-sm tracking-widest text-gray-500 py-2'>Let&#39;s build great products</p>
+                    <h1 className='py-4 text-gray-700'>Hi, I&#39;m <span className='text-[#4d797b]'>Ash!</span></h1>
                     <h1 className='py-2 text-gray-700'>A Software Engineer</h1>
-                    <p className='text-sm tracking-widest text-gray-500 py-4 max-w-[70%] m-auto'>I&#39m a software engineer with keen interest in full stack development and data engineering.</p>
+                    <p className='text-sm tracking-widest text-gray-500 py-4 max-w-[70%] m-auto'>I&#39;m a software engineer with keen interest in full stack development and data engineering.</p>
                     <div className='flex items-center justify-between max-w-[330px] m-auto py-4'>
                         <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover-scale-105 ease-in duration-500'>
                             <FaLinkedinIn />
