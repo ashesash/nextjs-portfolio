@@ -9,9 +9,8 @@ import { HiOutlineChevronDoubleUp } from 'react-icons/hi'
 const Contact = () => {
     return (
         <div id='contact' className='w-full lg:h-screen'>
-            <div className='max-w-[1240px] m-auto px-2 py-16 w-full'>
-                <p className='text-xl tracking-widest uppercase text-[#4d797b]'>Contact</p>
-                <h2 className='py-4'>Get in Touch</h2>
+            <div className='max-w-7xl m-auto px-2 py-16 w-full'>
+                <h1 className='text-xl tracking-widest uppercase text-[#4d797b]'>Get in touch</h1>
                 <div className='grid lg:grid-cols-5 gap-8'>
                     <div className='col-span-4 lg:col-span-2 w-full h-full shadow-xl shadow-gray-400 rounded-xl p-4'>
                         <div className='lg:p-4 h-full'>
@@ -20,10 +19,10 @@ const Contact = () => {
                             </div>
                             <div>
                                 {/* <h2 className='py-2'>Name Here</h2> */}
-                                <p>Software Engineer</p>
-                                <p className='py-4'>I&#39;m available for freelance or full time positions. Open to connecting for a chat as well!</p>
+                                <p className='py-4'>Software Engineer</p>
+                                <p>I&#39;m available for freelance or full time positions. Open to connecting for a chat as well!</p>
                                 <div>
-                                    <p className='uppercase pt-8'>Connect with Me</p>
+                                    <p className='py-2 uppercase pt-8'>Connect with Me</p>
                                     <div className='flex items-center justify-between p'>
                                         <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover-scale-105 ease-in duration-500'>
                                             <FaLinkedinIn />
@@ -42,7 +41,7 @@ const Contact = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4'>
+                    <div className='col-span-4 lg:col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4'>
                         <div className='p-4'>
                             <form>
                                 <div className='grid md:grid-cols-2 gap-4 w-full py-2'>

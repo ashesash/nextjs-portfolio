@@ -6,13 +6,12 @@ import AboutImg from '../public/assets/about.svg';
 const About = () => {
     return (
         <div id='about' className='w-full md:h-screen p-2 flex items-center py-16'>
-            <div className='max-w-[1240px] m-auto grid grid-cols-2 gap-2'>
-                <div className='col-span-1'>
-                    <p className='uppercase text-xl tracking-widest text-[#4d797b] font-bold'>
+            <div className='max-w-[1240px] m-auto grid grid-cols-3 gap-2'>
+                <div className='col-span-3 grids'>
+                    <h1 className='uppercase px-2 text-xl tracking-widest text-[#4d797b] font-bold'>
                         About
-                    </p>
-                    <h2 className='py-2'>Who I Am</h2>
-                    <p className='py-2 max-w-sm text-gray-600'>
+                    </h1>
+                    <p className='p-2 max-w-2xl text-gray-600 text-justify'>
                         I am a full stack engineer.
                         I&#39;m passionate about learning new technologies and understand there is
                         more than one way to accomplish a task. Though I am most proficient
@@ -22,7 +21,7 @@ const About = () => {
                         specific language, but choosing the best tool for the job.
                     </p>
                     <Link href='/#projects'>
-                        <p className='py-2 text-gray-600 underline cursor-pointer'>
+                        <p className='p-2 text-gray-600 underline cursor-pointer'>
                             Check out some of my latest projects.
                         </p>
                     </Link>
