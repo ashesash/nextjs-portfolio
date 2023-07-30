@@ -17,8 +17,8 @@ import Postgresql from '../public/assets/skills/postgresql.svg'
 
 const Skills = () => {
     return (
-        <div id='skills' className='w-full lg:h-screen p-2'>
-            <div className='max-w-[1240px] mx-auto flex flex-col justify-center h-full'>
+        <div id='skills' className='w-full md:h-screen px-2'>
+            <div className='max-w-7xl mx-auto flex flex-col justify-center '>
                 <h1 className='px-2 text-xl tracking-widest uppercase text-[#4d797b] font-bold'>
                     Skills
                 </h1>

@@ -19,23 +19,43 @@ const Contact = () => {
                             </div>
                             <div>
                                 {/* <h2 className='py-2'>Name Here</h2> */}
-                                <p className='py-4'>Software Engineer</p>
-                                <p>I&#39;m available for freelance or full time positions. Open to connecting for a chat as well!</p>
+                                <h3 className='pt-10'>Let's Chat!</h3>
+                                <p>I&#39;m available for freelance roles or full time positions</p>
                                 <div>
-                                    <p className='py-2 uppercase pt-8'>Connect with Me</p>
+                                    <p className='uppercase py-6'>Connect with Me</p>
                                     <div className='flex items-center justify-between p'>
-                                        <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover-scale-105 ease-in duration-500'>
-                                            <FaLinkedinIn />
-                                        </div>
-                                        <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover-scale-105 ease-in duration-500'>
-                                            <FaGithub />
-                                        </div>
-                                        <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover-scale-105 ease-in duration-500'>
-                                            <Fa500Px />
-                                        </div>
-                                        <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover-scale-105 ease-in duration-500'>
-                                            <AiOutlineMail />
-                                        </div>
+                                        <a
+                                            href='https://www.linkedin.com/in/aishwaryasahu/'
+                                            target='_blank'
+                                            rel='noreferrer'
+                                        >
+                                            <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                                                <FaLinkedinIn />
+                                            </div>
+                                        </a>
+                                        <a
+                                            href='https://github.com/ashesash'
+                                            target='_blank'
+                                            rel='noreferrer'
+                                        >
+                                            <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                                                <FaGithub />
+                                            </div>
+                                        </a>
+                                        <Link href='/#contact'>
+                                            <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                                                <AiOutlineMail />
+                                            </div>
+                                        </Link>
+                                        <a
+                                            href='https://500px.com/p/aishwaryasahu'
+                                            target='_blank'
+                                            rel='noreferrer'
+                                        >
+                                            <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                                                <Fa500Px />
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -44,13 +64,9 @@ const Contact = () => {
                     <div className='col-span-4 lg:col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4'>
                         <div className='p-4'>
                             <form>
-                                <div className='grid md:grid-cols-2 gap-4 w-full py-2'>
+                                <div>
                                     <div className='flex flex-col'>
                                         <label className='uppercase text-sm py-2'>Name</label>
-                                        <input className='border-2 rounded-lg p-3 flex border-gray-200' type='text' />
-                                    </div>
-                                    <div className='flex flex-col'>
-                                        <label className='uppercase text-sm py-2'>Number</label>
                                         <input className='border-2 rounded-lg p-3 flex border-gray-200' type='text' />
                                     </div>
                                 </div>
@@ -82,7 +98,7 @@ const Contact = () => {
                 <div className='flex justify-center py-12'>
                     <Link href='/'>
                         <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover-scale-110 ease-in duration-300'>
-                            <HiOutlineChevronDoubleUp size={25} className='m-auto text-[#4d797b]'/>
+                            <HiOutlineChevronDoubleUp size={25} className='m-auto text-[#4d797b]' />
                         </div>
                     </Link>
                 </div>

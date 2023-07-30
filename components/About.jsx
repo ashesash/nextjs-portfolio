@@ -5,31 +5,35 @@ import AboutImg from '../public/assets/about.svg';
 
 const About = () => {
     return (
-        <div id='about' className='w-full md:h-screen p-2 flex items-center py-16'>
-            <div className='max-w-[1240px] m-auto grid grid-cols-3 gap-2'>
-                <div className='col-span-3 grids'>
-                    <h1 className='uppercase px-2 text-xl tracking-widest text-[#4d797b] font-bold'>
-                        About
-                    </h1>
-                    <p className='p-2 max-w-2xl text-gray-600 text-justify'>
-                        I am a full stack engineer.
-                        I&#39;m passionate about learning new technologies and understand there is
-                        more than one way to accomplish a task. Though I am most proficient
-                        in building front-end applications using HTML, CSS, Javascript, and
-                        React, I am a quick learner and can pick up new tech stacks as
-                        needed. I believe that being a great developer is not using one
-                        specific language, but choosing the best tool for the job.
-                    </p>
-                    <Link href='/#projects'>
-                        <p className='p-2 text-gray-600 underline cursor-pointer'>
-                            Check out some of my latest projects.
+        <div id='about' className='p-4 w-full lg:h-screen sm:pb-10'>
+            <div className='max-w-6xl m-auto'>
+                <h1 className='uppercase px-2 text-xl tracking-widest text-[#4d797b] font-bold'>
+                    About
+                </h1>
+                <div className='md:grid grid-cols-5 gap-1 h-screen'>
+                    <div className='col-span-2'>
+                        <p className='px-2 max-w-2xl text-gray-600 text-justify'>
+                            I am a Mechanical engineer turned Software engineer.
+                            As a Mechanical Engineer, I honed my skills in designing and optimizing complex systems.
+                            Throughout my early career, I had the privilege of working on exciting
+                            projects that spanned various industries, enabling me to develop a robust
+                            foundation in engineering principles and project management.</p>
+
+                        <p className='px-2 max-w-2xl text-gray-600 text-justify'>
+                            I&#39;m passionate about learning new technologies and the ever expanding nature of
+                            software engineering interested me. Though I am most proficient
+                            in building full stack applications using HTML, CSS, Javascript,
+                            React, Django, I am  also interested in data engineering and use Python for
+                            data analysis projects. I believe that being a great developer is not using one
+                            specific language, but choosing the best tool for the job.
                         </p>
-                    </Link>
-                    <div className='w-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl p-4 hover:scale-105 ease-in duration-300'>
-                        <Image src={AboutImg} className='rounded-xl' alt='/' />
+                    </div>
+                    <div className='p-2 w-[100%] lg:pl-20 col-span-3'>
+                        <div className='m-auto shadow-xl shadow-gray-400 rounded-xl hover:scale-105 ease-in duration-300'>
+                            <Image src={AboutImg} className=' rounded-xl' alt='/' />
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     );
