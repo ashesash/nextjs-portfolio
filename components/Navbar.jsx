@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from 'react-icons/ai'
@@ -15,7 +15,7 @@ const Navbar = () => {
 
     useEffect(() => {
         const handleShadow = () => {
-            if (window.scrollY >=90) {
+            if (window.scrollY >= 90) {
                 setShadow(true)
             }
             else {
@@ -26,9 +26,9 @@ const Navbar = () => {
     }, [])
 
     return (
-        <div className={shadow ? 'fixed w-full h-20 shadow-xl z-[100] bg-[#ecf0f3] px-2':'fixed w-full h-20 z-[100] px-2'}>
+        <div className={shadow ? 'fixed w-full h-20 shadow-xl z-[100] bg-[#ecf0f3] px-2' : 'fixed w-full h-20 z-[100] px-2'}>
             <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16'>
-                <Link href='/'><Image src={Logo} alt="/" width='90' height='90'/></Link>
+                <Link href='/'><Image src={Logo} alt="/" width='90' height='90' /></Link>
                 <div>
                     <ul className='hidden md:flex'>
                         <Link href="/">
@@ -91,18 +91,38 @@ const Navbar = () => {
                         <div className='pt-40'>
                             <p className='uppercase tracking-widest text-[#4d797b]'> Let&#39;s Connect</p>
                             <div className='flex items-center justify-between my-4 w-full sm:w-[80%]'>
-                                <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover-scale-105 ease-in duration-500'>
-                                    <FaLinkedinIn />
-                                </div>
-                                <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover-scale-105 ease-in duration-500'>
-                                    <FaGithub />
-                                </div>
-                                <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover-scale-105 ease-in duration-500'>
-                                    <Fa500Px />
-                                </div>
-                                <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover-scale-105 ease-in duration-500'>
-                                    <AiOutlineMail />
-                                </div>
+                                <a
+                                    href='https://www.linkedin.com/in/aishwaryasahu/'
+                                    target='_blank'
+                                    rel='noreferrer'
+                                >
+                                    <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                                        <FaLinkedinIn />
+                                    </div>
+                                </a>
+                                <a
+                                    href='https://github.com/ashesash'
+                                    target='_blank'
+                                    rel='noreferrer'
+                                >
+                                    <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                                        <FaGithub />
+                                    </div>
+                                </a>
+                                <Link href='mailto:aishwarya.s@live.com'>
+                                    <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                                        <AiOutlineMail />
+                                    </div>
+                                </Link>
+                                <a
+                                    href='https://500px.com/p/aishwaryasahu'
+                                    target='_blank'
+                                    rel='noreferrer'
+                                >
+                                    <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                                        <Fa500Px />
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
