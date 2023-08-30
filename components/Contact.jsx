@@ -63,29 +63,29 @@ const Contact = () => {
                     </div>
                     <div className='col-span-4 lg:col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4'>
                         <div className='p-4'>
-                            <form method="POST" name="Contact" netlify>
+                            <form method="POST" name="ContactForm" netlify>
                                 <div>
                                     <div className='flex flex-col'>
                                         <label className='uppercase text-sm py-2'>Name</label>
-                                        <input className='border-2 rounded-lg p-3 flex border-gray-200' type='text' />
+                                        <input name="Name" className='border-2 rounded-lg p-3 flex border-gray-200' type='text' />
                                     </div>
                                 </div>
                                 <div>
                                     <div className='flex flex-col py-2'>
                                         <label className='uppercase text-sm py-2'>Email</label>
-                                        <input className='border-2 rounded-lg p-3 flex border-gray-200' type='email' />
+                                        <input name="Email" className='border-2 rounded-lg p-3 flex border-gray-200' type='email' />
                                     </div>
                                 </div>
                                 <div>
                                     <div className='flex flex-col py-2'>
                                         <label className='uppercase text-sm py-2'>Subject</label>
-                                        <input className='border-2 rounded-lg p-3 flex border-gray-200' type='text' />
+                                        <input name="Subject" className='border-2 rounded-lg p-3 flex border-gray-200' type='text' />
                                     </div>
                                 </div>
                                 <div>
                                     <div className='flex flex-col py-2'>
                                         <label className='uppercase text-sm py-2'>Message</label>
-                                        <textarea className='border-2 rounded-lg p-3 flex border-gray-200' rows='5'></textarea>
+                                        <textarea name="Message" className='border-2 rounded-lg p-3 flex border-gray-200' rows='5'></textarea>
                                     </div>
                                 </div>
                                 <div>
