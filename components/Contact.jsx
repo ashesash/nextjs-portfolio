@@ -63,7 +63,7 @@ const Contact = () => {
                     </div>
                     <div className='col-span-4 lg:col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4'>
                         <div className='p-4'>
-                            <form method="POST" name="ContactForm" netlify>
+                            <form method="POST" name="ContactForm" action="https://formspree.io/f/mnqrvbwy">
                                 <input type="hidden" name="form-name" value="contact" />
                                 <div>
                                     <div className='flex flex-col'>
