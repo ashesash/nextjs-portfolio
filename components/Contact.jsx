@@ -90,7 +90,7 @@ const Contact = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <button className='w-full p-4 text-gray-200 mt-4' type = "submit">Submit</button>
+                                    <button className='w-full p-4 text-gray-200 mt-4'>Submit</button>
                                 </div>
                             </form>
                         </div>
