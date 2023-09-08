@@ -12,9 +12,9 @@ const Contact = () => {
             <div className='max-w-7xl m-auto px-2 py-16 w-full'>
                 <h1 className='text-xl tracking-widest uppercase text-[#4d797b]'>Get in touch</h1>
                 <div className='grid lg:grid-cols-5 gap-8'>
-                    <div className='col-span-4 lg:col-span-2 w-full h-full shadow-xl shadow-gray-400 rounded-xl p-4'>
+                    <div className='col-span-4 lg:col-span-2 w-full h-full shadow-lg shadow-gray-400 rounded-xl p-4'>
                         <div className='lg:p-4 h-full'>
-                            <div className='w-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl hover:scale-105 ease-in duration-300'>
+                            <div className='w-full h-auto m-auto shadow-lg shadow-gray-400 rounded-xl hover:scale-105 ease-in duration-300'>
                                 <Image src={ContactImg} className='rounded-xl' alt='/' />
                             </div>
                             <div>
@@ -61,7 +61,7 @@ const Contact = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='col-span-4 lg:col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4'>
+                    <div className='col-span-4 lg:col-span-3 w-full h-auto shadow-lg shadow-gray-400 rounded-xl lg:p-4'>
                         <div className='p-4'>
                             <form method="POST" name="ContactForm" action="https://formspree.io/f/mnqrvbwy">
                                 <input type="hidden" name="form-name" value="contact" />
@@ -90,15 +90,15 @@ const Contact = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    <button className='w-full p-4 text-gray-200 mt-4'>Submit</button>
+                                    <button className='w-full p-4 text-gray-200 mt-4 bg-gradient-to-r from-[#4d797b] to-[#3b5152]'>Submit</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div className='flex justify-center py-12'>
-                    <Link href='/'>
-                        <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover-scale-110 ease-in duration-300'>
+                <div className='flex justify-center py-12 scroll-smooth'>
+                    <Link href='/' >
+                        <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300'>
                             <HiOutlineChevronDoubleUp size={25} className='m-auto text-[#4d797b]' />
                         </div>
                     </Link>

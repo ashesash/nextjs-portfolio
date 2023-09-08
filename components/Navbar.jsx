@@ -1,13 +1,16 @@
+"use client";
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from 'react-icons/ai'
-import { FaLinkedinIn, Fa500Px, FaGithub } from 'react-icons/fa'
+import { FaLinkedinIn, Fa500Px, FaGithub, FaSun, FaRegMoon } from 'react-icons/fa'
 import Logo from '../public/assets/ash.svg'
+import { useTheme } from 'next-themes'
 
 const Navbar = () => {
     const [nav, setNav] = useState(false)
     const [shadow, setShadow] = useState(false)
+    const { theme, setTheme } = useTheme()
 
     const handleNav = () => {
         setNav(!nav);
@@ -26,7 +29,7 @@ const Navbar = () => {
     }, [])
 
     return (
-        <div className={shadow ? 'fixed w-full h-20 shadow-xl z-[100] bg-[#ecf0f3] px-2' : 'fixed w-full h-20 z-[100] px-2'}>
+        <div className={shadow ? 'fixed w-full h-20 shadow-xl z-[100] bg-[#ecf0f3] dark:bg-[#0c121c] px-2' : 'fixed w-full h-20 z-[100] px-2'}>
             <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16'>
                 <Link href='/'><Image src={Logo} alt="/" width='90' height='90' /></Link>
                 <div>
@@ -46,15 +49,34 @@ const Navbar = () => {
                         <Link href="/#contact">
                             <li className='ml-10 text-sm uppercase hover:border-b'>Contact</li>
                         </Link>
+                        <li>
+                            <button
+                                className="ml-10 rounded"
+                                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                            >
+                                {theme === "dark" ? <FaSun /> : <FaRegMoon />}
+                            </button>
+                        </li>
                     </ul>
-                    <div onClick={handleNav} className='md:hidden'>
-                        <AiOutlineMenu size={25} />
+                    <div className='flex md:hidden'>
+                        <div>
+                            <button
+                                className="rounded"
+                                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                            >
+                                {theme === "dark" ? <FaSun /> : <FaRegMoon />}
+                            </button>
+                        </div>
+                        <div onClick={handleNav} className='ml-10'>
+                            <AiOutlineMenu size={25} />
+                        </div>
+
                     </div>
                 </div>
             </div>
             <div className={nav ? 'md:hidden fixed left-0 top-0 w-full h-screen bg-black/70' : ''}>
                 <div className={nav
-                    ? 'fixed left-0 top-0 w-[75%] sm:w-[60%] md::w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500'
+                    ? 'fixed left-0 top-0 w-[75%] sm:w-[60%] md::w-[45%] h-screen bg-[#ecf0f3] dark:bg-[#0c121c] p-10 ease-in duration-500'
                     : 'fixed left-[-100%] top-0 w-[75%] sm:w-[60%] md::w-[45%] h-screen p-10 ease-in duration-500'
                 }>
                     <div>
@@ -64,14 +86,17 @@ const Navbar = () => {
                                 <AiOutlineClose size={15} />
                             </div>
                         </div>
-                        {/* <div className='border-b border-gray-300 my-4'>
-                            <p className='w-[85%] md:w-[90%] py-4'>
-                                Let's build some great products!
-                            </p>
-                        </div> */}
                     </div>
                     <div className='py-6 flex flex-col'>
                         <ul className='uppercase'>
+                            {/* <li>
+                                <button
+                                    className=" rounded"
+                                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                                >
+                                    {theme === "dark" ? <FaSun /> : <FaRegMoon />}
+                                </button>
+                            </li> */}
                             <Link href='/'>
                                 <li className='py-4 text-sm'>Home</li>
                             </Link>
