@@ -70,7 +70,6 @@ const Navbar = () => {
                         <div onClick={handleNav} className='ml-10'>
                             <AiOutlineMenu size={25} />
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -89,28 +88,20 @@ const Navbar = () => {
                     </div>
                     <div className='py-6 flex flex-col'>
                         <ul className='uppercase'>
-                            {/* <li>
-                                <button
-                                    className=" rounded"
-                                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                                >
-                                    {theme === "dark" ? <FaSun /> : <FaRegMoon />}
-                                </button>
-                            </li> */}
                             <Link href='/'>
-                                <li className='py-4 text-sm'>Home</li>
+                                <li onClick={handleNav} className='py-4 text-sm'>Home</li>
                             </Link>
                             <Link href='/#about'>
-                                <li className='py-4 text-sm'>About</li>
+                                <li onClick={handleNav} className='py-4 text-sm'>About</li>
                             </Link>
                             <Link href='/#skills'>
-                                <li className='py-4 text-sm'>Skills</li>
+                                <li onClick={handleNav} className='py-4 text-sm'>Skills</li>
                             </Link>
                             <Link href='/#projects'>
-                                <li className='py-4 text-sm'>Projects</li>
+                                <li onClick={handleNav} className='py-4 text-sm'>Projects</li>
                             </Link>
                             <Link href='/#contact'>
-                                <li className='py-4 text-sm'>Contact</li>
+                                <li onClick={handleNav} className='py-4 text-sm'>Contact</li>
                             </Link>
                         </ul>
                         <div className='pt-40'>
