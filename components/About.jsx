@@ -5,12 +5,12 @@ import AboutImg from '../public/assets/about.svg';
 
 const About = () => {
     return (
-        <div id='about' className='p-4 w-full lg:h-screen sm:pb-10'>
+        <div id='about' className='p-4 w-full pb-10 lg:h-screen md:pb-5'>
             <div className='max-w-6xl m-auto'>
                 <h1 className='uppercase px-2 text-xl tracking-widest text-[#4d797b] font-bold'>
                     About
                 </h1>
-                <div className='md:grid grid-cols-5 gap-1 h-screen'>
+                <div className='md:grid grid-cols-5 gap-1 lg:h-screen'>
                     <div className='col-span-2'>
                         <p className='px-2 max-w-2xl text-gray-600 text-justify dark:text-[#ecf0f3]'>
                             I am a Mechanical engineer turned Software engineer.

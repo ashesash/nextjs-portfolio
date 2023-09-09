@@ -6,19 +6,19 @@ import {SiJavascript, SiNextdotjs, SiTailwindcss, SiDjango, SiInsomnia, SiCplusp
 
 const Skills = () => {
     return (
-        <div id='skills' className='w-full py-36 md: px-2'>
-            <div className='max-w-7xl mx-auto flex flex-col justify-center '>
-                <h1 className='px-2 text-xl tracking-widest uppercase text-[#4d797b] font-bold'>
+        <div id='skills' className='w-full pt-60 px-5 md:pt-2'>
+            <div className='max-w-7xl mx-auto flex flex-col justify-center pt-20'>
+                <h1 className='text-xl tracking-widest uppercase text-[#4d797b] font-bold'>
                     Skills
                 </h1>
                 <div className='grid grid-cols-2 lg:grid-cols-4 gap-8'>
                     <div className='p-6 shadow-lg shadow-gray-400 rounded-xl hover:scale-105 ease-in duration-300'>
-                        <div className='grid grid-cols-2 gap-4 justify-center items-center'>
+                        <div className='grid grid-cols-2 gap-4 items-center justify-center'>
                             <div className='m-auto'>
                                 <FaHtml5 size={30} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
-                                <h3>HTML</h3>
+                                <p className='font-bold text-xs md:text-base'>HTML</p>
                             </div>
                         </div>
                     </div>
@@ -28,7 +28,7 @@ const Skills = () => {
                                 <FaCss3Alt size={30} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
-                                <h3>CSS</h3>
+                                <p className='font-bold text-xs md:text-base'>CSS</p>
                             </div>
                         </div>
                     </div>
@@ -38,7 +38,7 @@ const Skills = () => {
                                 <SiJavascript size={25} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
-                                <h3>JavaScript</h3>
+                                <p className='font-bold text-xs md:text-base'>JavaScript</p>
                             </div>
                         </div>
                     </div>
@@ -48,7 +48,7 @@ const Skills = () => {
                                 <FaReact size={30} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
-                                <h3>React</h3>
+                                <p className='font-bold text-xs md:text-base'>React</p>
                             </div>
                         </div>
                     </div>
@@ -58,7 +58,7 @@ const Skills = () => {
                                 <SiNextdotjs size={25} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
-                                <h3>Next</h3>
+                                <p className='font-bold text-xs md:text-base'>Next</p>
                             </div>
                         </div>
                     </div>
@@ -68,7 +68,7 @@ const Skills = () => {
                                 <SiTailwindcss size={25} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
-                                <h3>Tailwind</h3>
+                                <p className='font-bold text-xs md:text-base'>Tailwind</p>
                             </div>
                         </div>
                     </div>
@@ -78,7 +78,7 @@ const Skills = () => {
                                 <FaPython size={30} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
-                                <h3>Python</h3>
+                                <p className='font-bold text-xs md:text-base'>Python</p>
                             </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@ const Skills = () => {
                                 <SiDjango size={25} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
-                                <h3>Django</h3>
+                                <p className='font-bold text-xs md:text-base'>Django</p>
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@ const Skills = () => {
                                 <SiInsomnia size={25} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
-                                <h3>Insomnia</h3>
+                                <p className='font-bold text-xs md:text-base'>Insomnia</p>
                             </div>
                         </div>
                     </div>
@@ -108,17 +108,17 @@ const Skills = () => {
                             <SiCplusplus size={25} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
-                                <h3>C++</h3>
+                                <p className='font-bold text-xs md:text-base'>C++</p>
                             </div>
                         </div>
                     </div>
-                    <div className='p-6 shadow-lg shadow-gray-400 rounded-xl hover:scale-105 ease-in duration-300'>
+                    <div className='p-6 pl-1 shadow-lg shadow-gray-400 rounded-xl hover:scale-105 ease-in duration-300'>
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
                             <SiPostgresql size={25} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
-                                <h3>PostgreSQL</h3>
+                                <p className='font-bold text-xs md:text-base'>PostgreSQL</p>
                             </div>
                         </div>
                     </div>
@@ -128,7 +128,7 @@ const Skills = () => {
                             <FaGithub size={30} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
-                                <h3>Github</h3>
+                                <p className='font-bold text-xs md:text-base'>Github</p>
                             </div>
                         </div>
                     </div>
