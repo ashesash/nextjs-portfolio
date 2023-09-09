@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from 'react-icons/ai'
 import { FaLinkedinIn, Fa500Px, FaGithub, FaSun, FaRegMoon } from 'react-icons/fa'
 import Logo from '../public/assets/ash.svg'
-import { useTheme, ThemeProvider } from 'next-themes'
+import { useTheme, systemTheme } from 'next-themes'
 
 const Navbar = () => {
     const [nav, setNav] = useState(false)
@@ -54,7 +54,7 @@ const Navbar = () => {
                                 className="ml-10 rounded"
                                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                             >
-                                {theme === "dark" ? <FaSun /> : <FaRegMoon /> && ThemeProvider === "dark" ? <FaSun /> : <FaRegMoon />}
+                                {theme === "dark" ? <FaSun /> : <FaRegMoon /> && systemTheme === "dark" ? <FaSun /> : <FaRegMoon />}
                             </button>
                         </li>
                     </ul>
@@ -64,7 +64,7 @@ const Navbar = () => {
                                 className="rounded"
                                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                             >
-                                {theme === "dark" ? <FaSun /> : <FaRegMoon /> && ThemeProvider === "dark" ? <FaSun /> : <FaRegMoon />}
+                                {theme === "dark" ? <FaSun /> : <FaRegMoon /> && systemTheme === "dark" ? <FaSun /> : <FaRegMoon />}
                             </button>
                         </div>
                         <div onClick={handleNav} className='ml-10'>
@@ -112,7 +112,7 @@ const Navbar = () => {
                                     target='_blank'
                                     rel='noreferrer'
                                 >
-                                    <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                                    <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 md:p-6'>
                                         <FaLinkedinIn />
                                     </div>
                                 </a>
@@ -121,12 +121,12 @@ const Navbar = () => {
                                     target='_blank'
                                     rel='noreferrer'
                                 >
-                                    <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                                    <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 md:p-6'>
                                         <FaGithub />
                                     </div>
                                 </a>
                                 <Link href='mailto:ashesashesash@outlook.com'>
-                                    <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                                    <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 md:p-6'>
                                         <AiOutlineMail />
                                     </div>
                                 </Link>
@@ -135,7 +135,7 @@ const Navbar = () => {
                                     target='_blank'
                                     rel='noreferrer'
                                 >
-                                    <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                                    <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 md:p-6'>
                                         <Fa500Px />
                                     </div>
                                 </a>
