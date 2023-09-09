@@ -1,18 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
-import Html from '../public/assets/skills/html5.svg';
-import Css from '../public/assets/skills/css3.svg';
-import Javascript from '../public/assets/skills/javascript.svg';
-import ReactImg from '../public/assets/skills/react.svg';
-import Tailwind from '../public/assets/skills/tailwindcss.svg';
-import Github from '../public/assets/skills/github.svg';
-import NextJS from '../public/assets/skills/nextdotjs.svg'
-import Python from '../public/assets/skills/python.svg'
-import Django from '../public/assets/skills/django.svg'
-import Insomnia from '../public/assets/skills/insomnia.svg'
-import Cpp from '../public/assets/skills/cplusplus.svg'
-// import Mysql from '../public/assets/skills/mysql.svg'
-import Postgresql from '../public/assets/skills/postgresql.svg'
+import { FaHtml5, FaCss3Alt, FaReact, FaPython, FaGithub } from 'react-icons/fa';
+import {SiJavascript, SiNextdotjs, SiTailwindcss, SiDjango, SiInsomnia, SiCplusplus, SiPostgresql} from 'react-icons/si';
 
 
 const Skills = () => {
@@ -26,7 +15,7 @@ const Skills = () => {
                     <div className='p-6 shadow-lg shadow-gray-400 rounded-xl hover:scale-105 ease-in duration-300'>
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
-                                <Image src={Html} width='64px' height='64px' alt='/' />
+                                <FaHtml5 size={30} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
                                 <h3>HTML</h3>
@@ -36,7 +25,7 @@ const Skills = () => {
                     <div className='p-6 shadow-lg shadow-gray-400 rounded-xl hover:scale-105 ease-in duration-300'>
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
-                                <Image src={Css} width='64px' height='64px' alt='/' />
+                                <FaCss3Alt size={30} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
                                 <h3>CSS</h3>
@@ -46,7 +35,7 @@ const Skills = () => {
                     <div className='p-6 shadow-lg shadow-gray-400 rounded-xl hover:scale-105 ease-in duration-300'>
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
-                                <Image src={Javascript} width='64px' height='64px' alt='/' />
+                                <SiJavascript size={25} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
                                 <h3>JavaScript</h3>
@@ -56,7 +45,7 @@ const Skills = () => {
                     <div className='p-6 shadow-lg shadow-gray-400 rounded-xl hover:scale-105 ease-in duration-300'>
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
-                                <Image src={ReactImg} width='64px' height='64px' alt='/' />
+                                <FaReact size={30} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
                                 <h3>React</h3>
@@ -66,7 +55,7 @@ const Skills = () => {
                     <div className='p-6 shadow-lg shadow-gray-400 rounded-xl hover:scale-105 ease-in duration-300'>
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
-                                <Image src={NextJS} width='64px' height='64px' alt='/' />
+                                <SiNextdotjs size={25} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
                                 <h3>Next</h3>
@@ -76,7 +65,7 @@ const Skills = () => {
                     <div className='p-6 shadow-lg shadow-gray-400 rounded-xl hover:scale-105 ease-in duration-300'>
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
-                                <Image src={Tailwind} width='64px' height='64px' alt='/' />
+                                <SiTailwindcss size={25} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
                                 <h3>Tailwind</h3>
@@ -86,7 +75,7 @@ const Skills = () => {
                     <div className='p-6 shadow-lg shadow-gray-400 rounded-xl hover:scale-105 ease-in duration-300'>
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
-                                <Image src={Python} width='64px' height='64px' alt='/' />
+                                <FaPython size={30} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
                                 <h3>Python</h3>
@@ -96,7 +85,7 @@ const Skills = () => {
                     <div className='p-6 shadow-lg shadow-gray-400 rounded-xl hover:scale-105 ease-in duration-300'>
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
-                                <Image src={Django} width='64px' height='64px' alt='/' />
+                                <SiDjango size={25} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
                                 <h3>Django</h3>
@@ -106,7 +95,7 @@ const Skills = () => {
                     <div className='p-6 shadow-lg shadow-gray-400 rounded-xl hover:scale-105 ease-in duration-300'>
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
-                                <Image src={Insomnia} width='64px' height='64px' alt='/' />
+                                <SiInsomnia size={25} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
                                 <h3>Insomnia</h3>
@@ -116,7 +105,7 @@ const Skills = () => {
                     <div className='p-6 shadow-lg shadow-gray-400 rounded-xl hover:scale-105 ease-in duration-300'>
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
-                                <Image src={Cpp} width='64px' height='64px' alt='/' />
+                            <SiCplusplus size={25} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
                                 <h3>C++</h3>
@@ -126,7 +115,7 @@ const Skills = () => {
                     <div className='p-6 shadow-lg shadow-gray-400 rounded-xl hover:scale-105 ease-in duration-300'>
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
-                                <Image src={Postgresql} width='64px' height='64px' alt='/' />
+                            <SiPostgresql size={25} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
                                 <h3>PostgreSQL</h3>
@@ -136,7 +125,7 @@ const Skills = () => {
                     <div className='p-6 shadow-lg shadow-gray-400 rounded-xl hover:scale-105 ease-in duration-300'>
                         <div className='grid grid-cols-2 gap-4 justify-center items-center'>
                             <div className='m-auto'>
-                                <Image src={Github} width='64px' height='64px' alt='/' />
+                            <FaGithub size={30} />
                             </div>
                             <div className='flex flex-col items-center justify-center'>
                                 <h3>Github</h3>

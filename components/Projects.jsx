@@ -2,16 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import ProjectItem from './ProjectItem';
-import Html from '../public/assets/skills/html5.svg';
-import Css from '../public/assets/skills/css3.svg';
-import Javascript from '../public/assets/skills/javascript.svg';
-import ReactImg from '../public/assets/skills/react.svg';
-import Tailwind from '../public/assets/skills/tailwindcss.svg';
-import Github from '../public/assets/skills/github.svg';
-import NextJS from '../public/assets/skills/nextdotjs.svg'
-import Python from '../public/assets/skills/python.svg'
-import Django from '../public/assets/skills/django.svg'
-import Insomnia from '../public/assets/skills/insomnia.svg'
+import { FaHtml5, FaCss3Alt, FaReact, FaPython, FaGithub } from 'react-icons/fa';
+import {SiJavascript, SiNextdotjs, SiTailwindcss, SiDjango, SiInsomnia, SiCplusplus, SiPostgresql} from 'react-icons/si';
 
 const Projects = () => {
     return (
@@ -23,27 +15,27 @@ const Projects = () => {
                 <div className='grid md:grid-cols-2 gap-8'>
                     <ProjectItem
                         title='Property Finder'
-                        backgroundImg={Html}
+                        // backgroundImg={Html}
                         projectUrl='/property'
                         tech='React JS'
                     />
                     <ProjectItem
                         title='Crypto App'
-                        backgroundImg={Css}
+                        // backgroundImg={Css}
                         projectUrl='/crypto'
                         tech='React JS'
 
                     />
                     <ProjectItem
                         title='Netflix App'
-                        backgroundImg={Django}
+                        // backgroundImg={Django}
                         projectUrl='/netflix'
                         tech='React JS'
 
                     />
                     <ProjectItem
                         title='Twitch UI'
-                        backgroundImg={Insomnia}
+                        // backgroundImg={Insomnia}
                         projectUrl='/twitch'
                         tech='Next JS'
 

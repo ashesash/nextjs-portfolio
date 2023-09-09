@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from 'react-icons/ai'
 import { FaLinkedinIn, Fa500Px, FaGithub, FaSun, FaRegMoon } from 'react-icons/fa'
 import Logo from '../public/assets/ash.svg'
-import { useTheme } from 'next-themes'
+import { useTheme, ThemeProvider } from 'next-themes'
 
 const Navbar = () => {
     const [nav, setNav] = useState(false)
@@ -54,7 +54,7 @@ const Navbar = () => {
                                 className="ml-10 rounded"
                                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                             >
-                                {theme === "dark" ? <FaSun /> : <FaRegMoon />}
+                                {theme === "dark" ? <FaSun /> : <FaRegMoon /> && ThemeProvider === "dark" ? <FaSun /> : <FaRegMoon />}
                             </button>
                         </li>
                     </ul>
@@ -64,7 +64,7 @@ const Navbar = () => {
                                 className="rounded"
                                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                             >
-                                {theme === "dark" ? <FaSun /> : <FaRegMoon />}
+                                {theme === "dark" ? <FaSun /> : <FaRegMoon /> && ThemeProvider === "dark" ? <FaSun /> : <FaRegMoon />}
                             </button>
                         </div>
                         <div onClick={handleNav} className='ml-10'>
