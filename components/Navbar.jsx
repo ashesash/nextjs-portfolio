@@ -4,8 +4,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from 'react-icons/ai'
 import { FaLinkedinIn, Fa500Px, FaGithub, FaSun, FaRegMoon } from 'react-icons/fa'
+import {PiSunBold, PiMoonBold} from 'react-icons/pi'
 import Logo from '../public/assets/ash.svg'
-import { useTheme, systemTheme, ThemeProvider } from 'next-themes'
+import { useTheme, systemTheme} from 'next-themes'
 
 const Navbar = () => {
     const [nav, setNav] = useState(false)
@@ -52,11 +53,9 @@ const Navbar = () => {
                         <li>
                             <button
                                 className="ml-10 rounded"
-                                onClick={() => setTheme(systemTheme === "dark" ? "light" : theme === "dark" ? "light" : "dark")}
+                                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                             >
-                                {theme === "dark" ? <FaSun /> : <FaRegMoon />}
-                                {/* {theme === "dark" ? <FaSun /> : <FaRegMoon /> && systemTheme === "dark" ? <FaSun /> : <FaRegMoon />} */}
-                                {/* {systemTheme === "dark" ? <FaSun /> : theme === "dark" ? <FaSun /> : <FaRegMoon />} */}
+                                {systemTheme === "dark" && theme === "dark" ? <PiSunBold /> : theme === "dark" ? <PiSunBold/> : <PiMoonBold />}
                             </button>
                         </li>
                     </ul>
@@ -66,7 +65,7 @@ const Navbar = () => {
                                 className="rounded"
                                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                             >
-                                {theme === "dark" ? <FaSun /> : <FaRegMoon /> && systemTheme === "dark" ? <FaSun /> : <FaRegMoon />}
+                                {systemTheme === "dark" && theme === "dark" ? <PiSunBold /> : theme === "dark" ? <PiSunBold/> : <PiMoonBold />}
                             </button>
                         </div>
                         <div onClick={handleNav} className='ml-10'>

@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image';
 import ContactImg from '../public/assets/contact.png';
 import Link from 'next/link';
-import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from 'react-icons/ai'
+import { AiOutlineMail } from 'react-icons/ai'
 import { FaLinkedinIn, Fa500Px, FaGithub } from 'react-icons/fa'
 import { HiOutlineChevronDoubleUp } from 'react-icons/hi'
 
