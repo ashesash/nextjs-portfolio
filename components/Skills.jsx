@@ -6,7 +6,7 @@ import {SiJavascript, SiNextdotjs, SiTailwindcss, SiDjango, SiInsomnia, SiCplusp
 
 const Skills = () => {
     return (
-        <div id='skills' className='w-full pt-30 px-5 md:pt-2'>
+        <div id='skills' className='w-full pb-20 px-5 md:pt-2'>
             <div className='max-w-7xl mx-auto flex flex-col justify-center pt-20'>
                 <h1 className='text-xl tracking-widest uppercase text-[#4d797b] font-bold'>
                     Skills

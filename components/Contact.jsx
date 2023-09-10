@@ -14,7 +14,7 @@ const Contact = () => {
                 <div className='grid lg:grid-cols-5 gap-8'>
                     <div className='col-span-4 lg:col-span-2 w-full h-full shadow-lg shadow-gray-400 rounded-xl p-4'>
                         <div className='lg:p-4 h-full'>
-                            <div className='w-full h-auto m-auto shadow-lg shadow-gray-400 rounded-xl hover:scale-105 ease-in duration-300'>
+                            <div className='w-full h-auto m-auto shadow-lg shadow-gray-400 rounded-xl hover:scale-105 ease-in duration-300 grid place-items-center'>
                                 <Image src={ContactImg} className='rounded-xl' alt='/' />
                             </div>
                             <div>
