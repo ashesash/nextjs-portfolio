@@ -1,7 +1,9 @@
 import React from 'react'
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from 'react-icons/ai'
 import { FaLinkedinIn, Fa500Px, FaGithub } from 'react-icons/fa'
+import {ImProfile} from 'react-icons/im'
 import Link from 'next/link'
+// import Resume from '../public/assets/Tech'
 
 const Main = () => {
     return (
@@ -34,6 +36,11 @@ const Main = () => {
                         <Link href='mailto:ashesashesash@outlook.com'>
                             <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
                                 <AiOutlineMail />
+                            </div>
+                        </Link>
+                        <Link href='/assets/TechCV_ASahu.pdf ' download='asahuResume.pdf'>
+                            <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                                <ImProfile />
                             </div>
                         </Link>
                         <a

@@ -4,18 +4,22 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from 'react-icons/ai'
 import { FaLinkedinIn, Fa500Px, FaGithub, FaSun, FaRegMoon } from 'react-icons/fa'
-import {PiSunBold, PiMoonBold} from 'react-icons/pi'
+import { PiSunBold, PiMoonBold } from 'react-icons/pi'
+import {ImProfile} from 'react-icons/im'
 import Logo from '../public/assets/ash.svg'
-import { useTheme, systemTheme} from 'next-themes'
+import { useTheme, resolvedTheme } from 'next-themes'
+// import { resolve } from 'styled-jsx/css';
 
 const Navbar = () => {
     const [nav, setNav] = useState(false)
     const [shadow, setShadow] = useState(false)
-    const {theme, setTheme} = useTheme()
+    const { theme, setTheme } = useTheme()
 
     const handleNav = () => {
         setNav(!nav);
     };
+
+    const [mounted, setMounted] = useState(false)
 
     useEffect(() => {
         const handleShadow = () => {
@@ -28,6 +32,9 @@ const Navbar = () => {
         }
         window.addEventListener('scroll', handleShadow)
     }, [])
+
+    useEffect(() => setMounted(true), [])
+
 
     return (
         <div className={shadow ? 'fixed w-full h-20 shadow-xl z-[100] bg-[#ecf0f3] dark:bg-[#0c121c] px-2' : 'fixed w-full h-20 z-[100] px-2'}>
@@ -53,9 +60,9 @@ const Navbar = () => {
                         <li>
                             <button
                                 className="ml-10 rounded"
-                                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                                onClick={() => setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')}
                             >
-                                {systemTheme === "dark" && theme === "dark" ? <PiSunBold /> : theme === "dark" ? <PiSunBold/> : <PiMoonBold />}
+                                {mounted && (theme === 'dark' || resolvedTheme === 'dark') ? <PiSunBold/> : <PiMoonBold/>}
                             </button>
                         </li>
                     </ul>
@@ -63,9 +70,9 @@ const Navbar = () => {
                         <div>
                             <button
                                 className="rounded"
-                                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                                onClick={() => setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')}
                             >
-                                {systemTheme === "dark" && theme === "dark" ? <PiSunBold /> : theme === "dark" ? <PiSunBold/> : <PiMoonBold />}
+                                {mounted && (theme === 'dark' || resolvedTheme === 'dark') ? <PiSunBold/> : <PiMoonBold/>}
                             </button>
                         </div>
                         <div onClick={handleNav} className='ml-10'>
@@ -107,13 +114,13 @@ const Navbar = () => {
                         </ul>
                         <div className='pt-40'>
                             <p className='uppercase tracking-widest text-[#4d797b]'> Let&#39;s Connect</p>
-                            <div className='flex items-center justify-between my-4 w-full sm:w-[80%]'>
+                            <div className='flex items-center justify-start my-4 w-full sm:w-[80%]'>
                                 <a
                                     href='https://www.linkedin.com/in/aishwaryasahu/'
                                     target='_blank'
                                     rel='noreferrer'
                                 >
-                                    <div onClick={handleNav} className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 md:p-6'>
+                                    <div onClick={handleNav} className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-110 ease-in duration-300 md:p-6'>
                                         <FaLinkedinIn />
                                     </div>
                                 </a>
@@ -122,13 +129,18 @@ const Navbar = () => {
                                     target='_blank'
                                     rel='noreferrer'
                                 >
-                                    <div onClick={handleNav} className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 md:p-6'>
+                                    <div onClick={handleNav} className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-110 ease-in duration-300 md:p-6'>
                                         <FaGithub />
                                     </div>
                                 </a>
                                 <Link href='mailto:ashesashesash@outlook.com'>
-                                    <div onClick={handleNav} className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 md:p-6'>
+                                    <div onClick={handleNav} className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-110 ease-in duration-300 md:p-6'>
                                         <AiOutlineMail />
+                                    </div>
+                                </Link>
+                                <Link href='/assets/TechCV_ASahu.pdf ' download='asahuResume.pdf'>
+                                <div onClick={handleNav} className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-110 ease-in duration-300 md:p-6'>
+                                        <ImProfile />
                                     </div>
                                 </Link>
                                 <a
@@ -136,7 +148,7 @@ const Navbar = () => {
                                     target='_blank'
                                     rel='noreferrer'
                                 >
-                                    <div onClick={handleNav} className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300 md:p-6'>
+                                    <div onClick={handleNav} className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-110 ease-in duration-300 md:p-6'>
                                         <Fa500Px />
                                     </div>
                                 </a>

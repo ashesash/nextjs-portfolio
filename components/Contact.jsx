@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { AiOutlineMail } from 'react-icons/ai'
 import { FaLinkedinIn, Fa500Px, FaGithub } from 'react-icons/fa'
 import { HiOutlineChevronDoubleUp } from 'react-icons/hi'
+import {ImProfile} from 'react-icons/im'
 
 const Contact = () => {
     return (
@@ -45,6 +46,11 @@ const Contact = () => {
                                         <Link href='mailto:ashesashesash@outlook.com'>
                                             <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
                                                 <AiOutlineMail />
+                                            </div>
+                                        </Link>
+                                        <Link href='/assets/TechCV_ASahu.pdf ' download='aSahuResume.pdf'>
+                                            <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                                                <ImProfile />
                                             </div>
                                         </Link>
                                         <a
