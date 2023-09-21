@@ -18,13 +18,13 @@ const Projects = () => {
                 </h1>
                 <div className='grid md:grid-cols-2 gap-8'>
                     <ProjectItem
-                        title='Generative AI COVID Measures recommender'
+                        title='GenerativeAI Health app'
                         backgroundImg={AI}
                         projectUrl='https://github.com/ashesash/quantium-govhack-2023'
                         tech='Python, Flask, ChatGPT API'
                     />
                     <ProjectItem
-                        title='Workshop Sig up Platform'
+                        title='Workshop Sign up Platform'
                         backgroundImg={Learnable}
                         projectUrl='https://github.com/ashesash/react-mentoring-platform'
                         tech='HTML, CSS, React JS, Django'
