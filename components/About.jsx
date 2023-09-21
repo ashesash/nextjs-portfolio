@@ -5,7 +5,7 @@ import AboutImg from '../public/assets/about.svg';
 
 const About = () => {
     return (
-        <div id='about' className='p-4 w-full pb-10 lg:pb-36 md:pb-5'>
+        <div id='about' className='p-4 w-full pb-10 lg:grid justify-items-center md:pb-5'>
             <div className='max-w-6xl'>
                 <h1 className='uppercase px-2 text-xl tracking-widest text-[#4d797b] font-bold'>
                     About

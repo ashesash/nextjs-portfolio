@@ -2,8 +2,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import ProjectItem from './ProjectItem';
-import { FaHtml5, FaCss3Alt, FaReact, FaPython, FaGithub } from 'react-icons/fa';
-import {SiJavascript, SiNextdotjs, SiTailwindcss, SiDjango, SiInsomnia, SiCplusplus, SiPostgresql} from 'react-icons/si';
+import Blog from '../public/assets/project/blog.png'
+import Todo from '../public/assets/project/flaskTodo.png'
+import AI from '../public/assets/project/generativeAI.png'
+import Learnable from '../public/assets/project/learnable.png'
+// import { FaHtml5, FaCss3Alt, FaReact, FaPython, FaGithub } from 'react-icons/fa';
+// import {SiJavascript, SiNextdotjs, SiTailwindcss, SiDjango, SiInsomnia, SiCplusplus, SiPostgresql} from 'react-icons/si';
 
 const Projects = () => {
     return (
@@ -14,30 +18,30 @@ const Projects = () => {
                 </h1>
                 <div className='grid md:grid-cols-2 gap-8'>
                     <ProjectItem
-                        title='Property Finder'
-                        // backgroundImg={Html}
-                        projectUrl='/property'
-                        tech='React JS'
+                        title='Generative AI COVID Measures recommender'
+                        backgroundImg={AI}
+                        projectUrl='https://github.com/ashesash/quantium-govhack-2023'
+                        tech='Python, Flask, ChatGPT API'
                     />
                     <ProjectItem
-                        title='Crypto App'
-                        // backgroundImg={Css}
-                        projectUrl='/crypto'
-                        tech='React JS'
+                        title='Workshop Sig up Platform'
+                        backgroundImg={Learnable}
+                        projectUrl='https://github.com/ashesash/react-mentoring-platform'
+                        tech='HTML, CSS, React JS, Django'
 
                     />
                     <ProjectItem
-                        title='Netflix App'
-                        // backgroundImg={Django}
-                        projectUrl='/netflix'
-                        tech='React JS'
+                        title='She Codes News Blog'
+                        backgroundImg={Blog}
+                        projectUrl='https://github.com/ashesash/she-codes-django-news-project'
+                        tech='HTML, CSS, Django'
 
                     />
                     <ProjectItem
-                        title='Twitch UI'
-                        // backgroundImg={Insomnia}
-                        projectUrl='/twitch'
-                        tech='Next JS'
+                        title='To Do List'
+                        backgroundImg={Todo}
+                        projectUrl='https://github.com/ashesash/toDoList'
+                        tech='Flask, Semantic UI'
 
                     />
                 </div>
