@@ -31,3 +31,25 @@ html {
     @apply shadow-xl shadow-gray-300 dark:shadow-none rounded-lg uppercase 
   }
 }
+
+.fade-up {
+  animation: fadeInUp 2s ease-in-out forwards; /* Use animation with a 1-second duration */
+}
+
+/* .another-element {
+  opacity: 0;
+  transform: translateY(100px); 
+  animation: fadeInUp 1s ease-in-out forwards; 
+} 
+*/
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1; /* Fade to full opacity */
+    transform: translateY(0); /* Move back to its original position */
+  }
+}
