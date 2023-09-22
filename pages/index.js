@@ -27,9 +27,9 @@ export default function Home() {
         <Projects />
         <Contact />
       </div>
-      <div>
+      {/* <div>
         <Footer />
-      </div>
+      </div> */}
     </div>
 
   )
