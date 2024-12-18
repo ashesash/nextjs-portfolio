@@ -1,8 +1,15 @@
-import React, { useEffect, useState, useRef } from 'react';
+'use client'
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { Parallax } from 'react-scroll-parallax';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import Button from './ui/Button';
+import Title from './ui/Title';
+
+// Custom hook for parallax effect
+function useParallax(value, distance) {
+    return useTransform(value, [0, 1], [-distance, distance]);
+}
 
 const ParallaxCard = ({
     image,
@@ -14,68 +21,94 @@ const ParallaxCard = ({
     isImageLeft
 }) => {
     const containerRef = useRef(null);
-    // Scroll tracking
-    // Observe scroll within this specific container
+
+    // Scroll progress within the specific container
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start end", "end start"], // Tracks scroll within container
+        offset: ["start end", "end start"]
     });
 
+    // Smooth spring for scroll progress
+    const smoothScrollProgress = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
 
-    // Parallax Effect: Move image vertically
-    const translateY = useTransform(scrollYProgress, [0, 1], [-500, 500]);
+    // Parallax effects
+    const imageParallax = useParallax(smoothScrollProgress, 100);
+    const detailsParallax = useParallax(smoothScrollProgress, -100);
 
-    // Zoom Effect: Scale the image
-    const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.3, 1]);
+    // Scale effect
+    const scale = useTransform(
+        smoothScrollProgress,
+        [0, 0.4, 1],
+        [0.4, 0.8, 0.5]
+    );
+
+    const techWords = tech.split(" ");
 
     return (
-        <div className={` flex ${isImageLeft ? 'flex-row' : 'flex-row-reverse'} w-full h-screen justify-center`}>
-            <div className={`w-2/3 overflow-hidden ${isImageLeft ? 'bg-lime-100' : 'bg-orange-100'}`}>
-                {/* <Parallax speed={-10}> */}
-                <h2 className="fade-down mt-10 tracking-wider text-center overflow-auto [writing-mode:vertical-r]">{title}</h2>
-                {/* </Parallax> */}
+        <div
+            ref={containerRef}
+            className={`flex ${isImageLeft ? 'flex-row' : 'flex-row-reverse'} w-full h-screen sticky top-0 snap-start bg-white dark:bg-cyan-950`}
+        >
+            {/* Image Section */}
+            <div className={`w-2/3 flex items-center justify-center overflow-hidden ${isImageLeft ? 'bg-custom-indigo_dye' : 'bg-custom-prussian_blue'}`}>
+            {/* <div className={`w-2/3 flex items-center justify-center rounded-lg overflow-hidden ${isImageLeft ? 'bg-custom-vivid_sky_blue' : 'bg-custom-indigo_dye'}`}> */}
                 <motion.div
                     style={{
-                        translateY,
+                        y: imageParallax,
                         scale,
                     }}
-                    className="w-full h-full"
+                    className="w-full h-full flex items-center justify-center"
                 >
-                    <Image
-                        className=" w-3/4 pt-20 ml-[10%] drop-shadow-2xl shadow-blue-900"
-                        src={image}
-                        alt={title}
-                        layout="intrinsic"
-                        priority />
+                    <div className="relative w-full h-full">
+                        <Image
+                            src={image}
+                            alt={title}
+                            fill
+                            priority
+                            className="object-contain"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                    </div>
                 </motion.div>
             </div>
-            <div className="w-1/3 relative px-10 pt-32 text-center overflow-hidden">
-                <Parallax speed={0}>
-                    {/* <h2 className="mt-10 tracking-wider">{title}</h2> */}
-                    <h4 className="pb-4">{tech}</h4>
-                    <p className="pb-4">{description}</p>
-                    <div className="flex flex-row justify-center">
+
+            {/* Details Section */}
+            <div className="w-1/3 flex items-center justify-center px-10 h-screen bg-inherit">
+                <motion.div
+                    style={{
+                        y: detailsParallax,
+                    }}
+                    className="text-center"
+                >
+                    {/* <h3 className="text-xl text-black tracking-wider">{title}</h3> */}
+                    <Title level='h4'>{title}</Title>
+                    <p className="pb-4 text-black text-justify">{description}</p>
+                    <Title level='h6'>Tech Used</Title>
+                    <p className="pb-4 text-black">{tech}</p>
+                    <div className="flex justify-center space-x-4">
                         {gitUrl && (
-                            <Link href={gitUrl}>
-                                <button className='w-full p-2 text-3xl text-opacity-60 text-lime-300 mt-4 bg-gradient-to-tr from-teal-200 via-cyan-700 to-teal-200 bg-[length:200%] [animation:_gradient-button_10s_infinite_linear]'>
+                            <Button>
+                                <Link href={gitUrl}>
                                     Github
-                                </button>
-                            </Link>
+                                </Link>
+                            </Button>
                         )}
                         {projectUrl && (
-                            <Link href={projectUrl}>
-                                <button className='w-full p-2 text-3xl text-opacity-60 text-lime-300 mt-4 bg-gradient-to-tr from-teal-200 via-cyan-700 to-teal-200 bg-[length:200%] [animation:_gradient-button_10s_infinite_linear]'>
-                                    Live Site
-                                </button>
-                            </Link>
+                            <Button>
+                                <Link href={projectUrl}>
+                                    Website
+                                </Link>
+                            </Button>
                         )}
                     </div>
-                </Parallax>
-            </div >
-        </div >
+                </motion.div>
+            </div>
+        </div>
     );
 };
-
-
 
 export default ParallaxCard;

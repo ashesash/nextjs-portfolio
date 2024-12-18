@@ -1,13 +1,13 @@
 import '@/styles/globals.css';
 import { ThemeProvider } from 'next-themes';
-import { ParallaxProvider } from 'react-scroll-parallax';
+import Layout from '@/components/LenisScroll';
 
 export default function App({ Component, pageProps }) {
   return (
     <ThemeProvider attribute="class">
-      <ParallaxProvider>
+      {/* <Layout> */}
         <Component {...pageProps} />
-      </ParallaxProvider>
+      {/* </Layout> */}
     </ThemeProvider>
   );
 }

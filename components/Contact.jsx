@@ -6,13 +6,16 @@ import { AiOutlineMail } from 'react-icons/ai'
 import { FaLinkedinIn, Fa500Px, FaGithub } from 'react-icons/fa'
 import { HiOutlineChevronDoubleUp } from 'react-icons/hi'
 import {ImProfile} from 'react-icons/im'
+import Title from './ui/Title';
+import Background from './Background';
 
 const Contact = () => {
     return (
-        <div id='contact' className='w-full lg:h-screen'>
-            <div className='max-w-7xl m-auto px-5 pt-36 w-full'>
-                <h1 className='text-xl tracking-widest uppercase text-[#4d797b]'>Get in touch</h1>
-                <div className='grid lg:grid-cols-5 gap-8'>
+        <div id='contact' className='w-full h-screen'>
+                <Title level='h2' className='h-screen my-80 py-80'>
+                    Get in Touch
+                </Title>
+                <div className='grid lg:grid-cols-5 gap-8 bg-white sticky top-0'>
                     <div className='col-span-4 lg:col-span-2 w-full h-full shadow-lg shadow-gray-400 rounded-xl p-4'>
                         <div className='lg:p-4 h-full'>
                             <div className='w-full h-auto m-auto shadow-lg shadow-gray-400 rounded-xl hover:scale-105 ease-in duration-300 grid place-items-center'>
@@ -48,11 +51,6 @@ const Contact = () => {
                                                 <AiOutlineMail />
                                             </div>
                                         </Link>
-                                        <Link href='/assets/TechCV_ASahu.pdf ' download='aSahuResume.pdf'>
-                                            <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
-                                                <ImProfile />
-                                            </div>
-                                        </Link>
                                         <a
                                             href='https://500px.com/p/aishwaryasahu'
                                             target='_blank'
@@ -85,32 +83,25 @@ const Contact = () => {
                                 </div>
                                 <div>
                                     <div className='flex flex-col py-2'>
-                                        <label className='uppercase text-sm py-2'>Subject</label>
-                                        <input name="Subject" className='border-2 rounded-lg p-3 flex border-gray-200' type='text' />
-                                    </div>
-                                </div>
-                                <div>
-                                    <div className='flex flex-col py-2'>
                                         <label className='uppercase text-sm py-2'>Message</label>
                                         <textarea name="Message" className='border-2 rounded-lg p-3 flex border-gray-200' rows='5'></textarea>
                                     </div>
                                 </div>
                                 <div>
-                                    <button className='w-full p-4 text-gray-200 mt-4 bg-gradient-to-r from-[#4d797b] to-[#3b5152]'>Submit</button>
+                                    <button className='w-full p-2 text-3xl text-opacity-60 text-lime-300 mt-4 bg-gradient-to-tr from-teal-200 via-cyan-700 to-teal-200 bg-[length:200%] [animation:_gradient-button_10s_infinite_linear]'>Submit</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div className='flex justify-center py-12 scroll-smooth'>
+                <div className='flex justify-center py-5 scroll-smooth'>
                     <Link href='/' >
-                        <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300'>
-                            <HiOutlineChevronDoubleUp size={25} className='m-auto text-[#4d797b]' />
+                        <div className='rounded-full shadow-lg shadow-gray-400 p-3 hover:scale-110 ease-in duration-400'>
+                            <HiOutlineChevronDoubleUp size={20} className='m-auto' />
                         </div>
                     </Link>
                 </div>
             </div>
-        </div>
     );
 };
 

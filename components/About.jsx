@@ -1,62 +1,41 @@
 import React from 'react';
-import { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { motion, useScroll, AnimatePresence } from "framer-motion"
-import AboutImg from '../public/assets/about.svg';
+import Title from './ui/Title';
+import { motion, useTransform, useScroll } from "framer-motion";
+import { useRef } from "react";
 
 const About = () => {
 
-    const [scrollPosition, setScrollPosition] = useState(0);
-    const { scrollYProgress } = useScroll();
-    const x = `${scrollPosition}%`;
-    const y = `${scrollPosition}%`;
-    const scale = 1 + scrollPosition / 100;
+    const targetRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: targetRef,
+    });
+
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-60%"]);
 
     return (
-        <div id='about' className='p-4 w-full pb-10 lg:grid md:pb-5'>
-            <div className='p-2 w-[100%] lg:pl-20 col-span-3'>
-                <motion.div
-                    initial={{ opacity: 0, x: "-100%" }}
-                    animate={{ opacity: 1, x: "40%" }}
-                    transition={{ duration: 3 }}
-                >
-                    <div style={{ position: "relative", width: "100%", height: "100vh" }}>
-                        <motion.div
-                            initial={{ scale: 0.5, opacity: 0, x: "-100%", y: "-100%" }}
-                            animate={{ scale: 1, opacity: 1, x: "50%", y: "50%" }}
-                            transition={{ duration: 2 }}
-                            style={{ position: "absolute", top: 0, left: 0 }}
-                        >
-                            <Image src={AboutImg} className=' rounded-xl' alt='/' />
-                        </motion.div>
-                    </div>
-                </motion.div>
-
-            </div>
-            <div className='max-w-6xl'>
-                <h1 className='uppercase px-2 text-xl tracking-widest text-[#4d797b] font-bold'>
-                    About
-                </h1>
-                <div className='md:grid grid-cols-5 gap-1'>
-                    <div className='col-span-2'>
-                        <p className='px-2 max-w-2xl text-gray-600 text-justify dark:text-[#ecf0f3]'>
-                            I am a Software engineer with experience in frontend and backend engineering.
-                            I also have a keen interest in leveraging the power of the new developments in AI to
-                            build cutting edge tools.  </p>
-                        {/* <p className='px-2 max-w-2xl text-gray-600 text-justify dark:text-[#ecf0f3]'>
-                            I&#39;m passionate about learning new technologies and the ever expanding nature of
-                            software engineering interested me. Though I am most proficient
-                            in building full stack applications using HTML, CSS, Javascript,
-                            React, Django, I am  also interested in data engineering and use Python for
-                            data analysis projects. I believe that being a great developer is not using one
-                            specific language, but choosing the best tool for the job.
-                        </p> */}
-                    </div>
-
+        <div id="about" className='w-full min-h-screen'>
+            <Title level='h2' className='h-screen my-80 py-80'>
+                About
+            </Title>
+            <div className=''>
+                <div className='px-2 text-gray-100 text-justify dark:text-[#ecf0f3] snap-mandatory snap-y'>
+                    <p>
+                        I’ve lived in a few different places before settling in Sydney—India, Bahrain, Canada, and Sweden—each one leaving its mark on me and shaping the way I approach life and work.
+                        These experiences have given me a unique perspective and a love for diverse cultures, which is why I’m so happy to now call Sydney home.
+                    </p>
+                    <br />
+                    <p>
+                        Currently, I’m a Full Stack Developer at Meydit, where I work on everything from revamping the frontend and improving backend notifications to integrating machine
+                        learning into new products.
+                    </p>
+                    <br />
+                    <p>
+                        When I’m not coding, I’m likely modding mechanical keyboards, playing guitar, sketching, or getting creative with polymer clay. I also love building small coding projects
+                        in my spare time, so if you’re interested in collaborating or building something cool together, feel free to reach out!
+                    </p>
                 </div>
             </div>
-        </div >
+        </div>
     );
 };
 
