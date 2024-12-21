@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import Button from './ui/Button';
 import Title from './ui/Title';
+import BackgroundScene from './ui/BackgroundScene';
 
 // Custom hook for parallax effect
 function useParallax(value, distance) {
@@ -37,13 +38,13 @@ const ParallaxCard = ({
 
     // Parallax effects
     const imageParallax = useParallax(smoothScrollProgress, 100);
-    const detailsParallax = useParallax(smoothScrollProgress, -100);
+    const detailsParallax = useParallax(smoothScrollProgress, -200);
 
     // Scale effect
     const scale = useTransform(
         smoothScrollProgress,
         [0, 0.4, 1],
-        [0.4, 0.8, 0.5]
+        [0.4, 1, 0.5]
     );
 
     const techWords = tech.split(" ");
@@ -51,11 +52,12 @@ const ParallaxCard = ({
     return (
         <div
             ref={containerRef}
-            className={`flex ${isImageLeft ? 'flex-row' : 'flex-row-reverse'} w-full h-screen sticky top-0 snap-start bg-white dark:bg-cyan-950`}
+            // className={`flex ${isImageLeft ? 'flex-row' : 'flex-row-reverse'} w-full h-screen sticky top-0 snap-start ${isImageLeft ? 'bg-custom-indigo_dye' : 'bg-custom-prussian_blue'} dark:bg-cyan-950`}
+            className={`flex ${isImageLeft ? 'flex-row' : 'flex-row-reverse'} w-full h-screen sticky top-0 snap-start bg-white`}
         >
             {/* Image Section */}
-            <div className={`w-2/3 flex items-center justify-center overflow-hidden ${isImageLeft ? 'bg-custom-indigo_dye' : 'bg-custom-prussian_blue'}`}>
-            {/* <div className={`w-2/3 flex items-center justify-center rounded-lg overflow-hidden ${isImageLeft ? 'bg-custom-vivid_sky_blue' : 'bg-custom-indigo_dye'}`}> */}
+            <div className={`w-2/3 flex items-center justify-center overflow-hidden `}>
+                {/* <div className={`w-2/3 flex items-center justify-center rounded-lg overflow-hidden ${isImageLeft ? 'bg-custom-vivid_sky_blue' : 'bg-custom-indigo_dye'}`}> */}
                 <motion.div
                     style={{
                         y: imageParallax,
@@ -69,7 +71,7 @@ const ParallaxCard = ({
                             alt={title}
                             fill
                             priority
-                            className="object-contain"
+                            className="object-contain "
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
                     </div>
@@ -77,7 +79,7 @@ const ParallaxCard = ({
             </div>
 
             {/* Details Section */}
-            <div className="w-1/3 flex items-center justify-center px-10 h-screen bg-inherit">
+            <div className="w-1/3 flex items-center justify-center px-10 h-screen ">
                 <motion.div
                     style={{
                         y: detailsParallax,

@@ -40,12 +40,12 @@ export const projectData = [
         tech: 'HTML, CSS, React, Django',
         description: 'A platform for registering workshops.',
     },
-    {
-        id: 5,
-        title: 'Portfolio Website',
-        img: Portfolio,
-        gitUrl: 'https://github.com/ashesash/nextjs-portfolio',
-        tech: 'Python, Flask, ChatGPT API',
-        description: 'My personal portfolio website.',
-    },
+    // {
+    //     id: 5,
+    //     title: 'Portfolio Website',
+    //     img: Portfolio,
+    //     gitUrl: 'https://github.com/ashesash/nextjs-portfolio',
+    //     tech: 'Python, Flask, ChatGPT API',
+    //     description: 'My personal portfolio website.',
+    // },
 ];

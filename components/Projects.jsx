@@ -19,12 +19,12 @@ const Projects = () => {
     // // const headingY = useTransform(scrollYProgress, [0, 0.2], ["0%", "-50%"]);
 
     return (
-        <div id="projects" className="w-full min-h-screen">
-            <Title level='h2' className='h-screen my-80 py-80'>
+        <div id="projects" className="w-full min-h-screen snap-mandatory snap-y">
+            <Title level='h2' className='h-screen my-80 py-80 snap-start'>
                 Projects
             </Title>
             <div
-                className="flex flex-col items-center gap-8 snap-mandatory snap-y"
+                className="flex flex-col items-center gap-14 snap-mandatory snap-y"
             >
                 {projectData.map((card, index) => (
                     <ParallaxCard
@@ -36,7 +36,7 @@ const Projects = () => {
                         gitUrl={card.gitUrl}
                         projectUrl={card.projectUrl}
                         isImageLeft={index % 2 === 0}
-                        className="sticky top-0 snap-y"
+                        // className="bg-white"
                     />
                 ))}
             </div>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence, useAnimation } from 'framer-motion';
-import Background from './Background';
 
 const Main = () => {
 
@@ -35,7 +34,6 @@ const Main = () => {
 
     return (
         <div id='home' className='w-full h-screen min-h-screen'>
-            <Background />
             <div className='px-[2%] text-left pt-60'>
                 <div>
                     <motion.div
@@ -46,7 +44,7 @@ const Main = () => {
                             ease: "easeInOut"
                         }}
                     >
-                        <h1 className='py-4 text-white lg:text-[150px] md:text-[100px] sm:[80px]'>
+                        <h1 className='py-4 lg:text-[100px] md:text-[100px] sm:[80px]'>
                             Hi, I&#39;m
                             <span className='bg-gradient-to-r from-teal-200 via-cyan-700 to-teal-200 bg-clip-text text-transparent bg-[length:200%] [animation:_gradient-move_3s_infinite_linear_reverse]'> Ash!</span>
                             {/* <span className=''> Ash!</span> */}
@@ -62,7 +60,7 @@ const Main = () => {
                         }}
                     >
                         <h1 className='py-2 mix-blend-darken leading-tight text-7xl'>
-                            A passionate <br /> Software Engineer
+                            Software Engineer
                         </h1>
                     </motion.div>
                     <div className='w-full h-24 overflow-hidden relative'>
@@ -77,7 +75,7 @@ const Main = () => {
                                         duration: 0.7,
                                         ease: "easeOut"
                                     }}
-                                    className='mix-blend-darken h-16 w-[vw] text-7xl'
+                                    className=' h-16 w-[vw] text-7xl'
                                 >
                                     {roles[currentIndex].name}
                                 </motion.h1>
