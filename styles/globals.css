@@ -95,14 +95,14 @@ html {
   }
 }
 
-@keyframes gradient-button {
+/* @keyframes gradient-button {
   0%,100% {
     background-position: 0% 0%;
   }
   50% {
     background-position: 100% 100%;
   }
-}
+} */
 
 
 @layer base {

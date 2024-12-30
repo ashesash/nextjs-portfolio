@@ -1,30 +1,20 @@
 import React, { useRef } from 'react';
-import { motion, useInView, useScroll, useTransform } from 'framer-motion';
-import ParallaxCard from './ParallaxCard';
+import ParallaxCard from './ui/ParallaxCard';
 import { projectData } from './projectData';
+import TextRotate from './ui/TextRotate';
 import Title from './ui/Title';
 
 const Projects = () => {
-    // const container = useRef(null);
-    // const isInView = useInView(container, { once:true });
-
-    // // Track the scroll position of the entire Projects section
-    // const { scrollYProgress } = useScroll({
-    //     target: container,
-    //     offset: ["start end", "start start"], //start of div meets end of container at 0, 
-    // });
-
-    // // Sticky heading stays still
-    // // const headingY = useTransform(scrollYProgress, [0, 0.9], ["10%", "-50%"]);
-    // // const headingY = useTransform(scrollYProgress, [0, 0.2], ["0%", "-50%"]);
 
     return (
-        <div id="projects" className="w-full min-h-screen snap-mandatory snap-y">
-            <Title level='h2' className='h-screen my-80 py-80 snap-start'>
-                Projects
-            </Title>
+        <div id="projects" className="relative w-full min-h-screen snap-mandatory snap-y">
+            <div className='h-screen grid place-items-center snap-start'>
+                <Title level="h2" className="sticky top-10">
+                    Projects
+                </Title>
+            </div>
             <div
-                className="flex flex-col items-center gap-14 snap-mandatory snap-y"
+                className="flex flex-col items-center snap-start sticky top-10"
             >
                 {projectData.map((card, index) => (
                     <ParallaxCard
@@ -36,7 +26,6 @@ const Projects = () => {
                         gitUrl={card.gitUrl}
                         projectUrl={card.projectUrl}
                         isImageLeft={index % 2 === 0}
-                        // className="bg-white"
                     />
                 ))}
             </div>

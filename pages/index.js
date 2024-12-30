@@ -1,13 +1,12 @@
-import Navbar2 from '../components/Navbar2.jsx'
+import Navbar from '../components/Navbar2.jsx'
 import Head from 'next/head'
 import Main from '../components/Main.jsx'
 import About from '../components/About.jsx'
 import Projects from '../components/Projects.jsx'
 import Contact from '../components/Contact.jsx'
 import Footer from '@/components/Footer.jsx'
-import ContactMini from '@/components/ContactMini.jsx'
-import BackgroundScene from '@/components/ui/BackgroundScene.jsx'
-import ContactSection from '@/components/sample.jsx'
+import ContactMini from '@/components/Contact.jsx'
+import BackgroundParticles from '@/components/ui/backgroundParticles.jsx'
 
 export default function Home() {
   return (
@@ -19,13 +18,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <BackgroundScene /> */}
-      {/* <Navbar2 /> */}
+      <BackgroundParticles />
+      {/* <Navbar /> */}
       <Main />
-      {/* <Projects /> */}
+      <Projects />
       <About />
-
-      <ContactMini />
+      <ContactMini />  
       {/* <Footer /> */}
     </div>
 

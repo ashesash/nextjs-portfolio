@@ -44,7 +44,7 @@ const Main = () => {
                             ease: "easeInOut"
                         }}
                     >
-                        <h1 className='py-4 lg:text-[100px] md:text-[100px] sm:[80px]'>
+                        <h1 className='py-4 lg:text-[100px] md:text-[100px] sm:text-[80px]'>
                             Hi, I&#39;m
                             <span className='bg-gradient-to-r from-teal-200 via-cyan-700 to-teal-200 bg-clip-text text-transparent bg-[length:200%] [animation:_gradient-move_3s_infinite_linear_reverse]'> Ash!</span>
                             {/* <span className=''> Ash!</span> */}
@@ -59,7 +59,7 @@ const Main = () => {
                             delay: 1
                         }}
                     >
-                        <h1 className='py-2 mix-blend-darken leading-tight text-7xl'>
+                        <h1 className='py-2 leading-tight lg:text-[90px] md:text-[80px] sm:text-[70px]'>
                             Software Engineer
                         </h1>
                     </motion.div>
@@ -75,7 +75,7 @@ const Main = () => {
                                         duration: 0.7,
                                         ease: "easeOut"
                                     }}
-                                    className=' h-16 w-[vw] text-7xl'
+                                    className=' h-16 w-[vw] lg:text-[90px] md:text-[80px] sm:text-[70px]'
                                 >
                                     {roles[currentIndex].name}
                                 </motion.h1>

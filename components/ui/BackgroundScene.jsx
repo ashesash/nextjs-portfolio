@@ -3,6 +3,11 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { createNoise4D } from 'simplex-noise';
+import { colorGenerator } from 'utils/colorGenerator.js';
+
+let renderer, scene, camera, plane;
+let light1, light2, light3, light4;
+let width, height, wWidth, wHeight, cx, cy;
 
 const BackgroundScene = () => {
     const canvasRef = useRef(null);
@@ -20,9 +25,6 @@ const BackgroundScene = () => {
     };
 
     useEffect(() => {
-        let renderer, scene, camera, plane;
-        let light1, light2, light3, light4;
-        let width, height, cx, cy, wWidth, wHeight;
 
         const noise4D = createNoise4D();
         const mouse = new THREE.Vector2();
@@ -38,25 +40,6 @@ const BackgroundScene = () => {
             return [width, height];
         };
 
-        const updateColors = () => {
-            const randomColor = () => {
-                return '#' + Math.floor(Math.random() * 16777215).toString(16);
-            };
-
-            const newColors = {
-                light1Color: randomColor(),
-                light2Color: randomColor(),
-                light3Color: randomColor(),
-                light4Color: randomColor(),
-
-            };
-            console.log(newColors.light1Color, newColors.light2Color, newColors.light3Color, newColors.light4Color );
-            
-            light1.color = new THREE.Color(newColors.light1Color);
-            light2.color = new THREE.Color(newColors.light2Color);
-            light3.color = new THREE.Color(newColors.light3Color);
-            light4.color = new THREE.Color(newColors.light4Color);
-        };
 
         //initialise all the objects 
         const init = () => {
@@ -77,7 +60,6 @@ const BackgroundScene = () => {
 
             initLights();
             initPlane();
-            updateColors();
             animate();
         };
 
@@ -139,6 +121,12 @@ const BackgroundScene = () => {
 
             var light = new THREE.AmbientLight(0xffffff, 0.005);
             scene.add(light);
+
+            const newColors = colorGenerator();
+            light1.color = new THREE.Color(newColors.light1Color);
+            light2.color = new THREE.Color(newColors.light2Color);
+            light3.color = new THREE.Color(newColors.light3Color);
+            light4.color = new THREE.Color(newColors.light4Color);
 
             // const light1Helper = new THREE.PointLightHelper(light1);
             // const light2Helper = new THREE.PointLightHelper(light2);

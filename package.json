@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@netlify/plugin-nextjs": "^4.39.1",
-    "@tabler/icons-react": "^3.24.0",
+    "@radix-ui/react-label": "^2.1.1",
+    "@react-three/drei": "^9.120.4",
+    "@tabler/icons-react": "^3.26.0",
     "autoprefixer": "^10.4.14",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

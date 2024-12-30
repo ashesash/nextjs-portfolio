@@ -1,3 +1,11 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+const plugin = require("tailwindcss/plugin");
+
+const colors = require("tailwindcss/colors");
+const {
+	default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: [
@@ -8,6 +16,9 @@ module.exports = {
 	darkMode: ["class", 'class'],
 	theme: {
 		extend: {
+			boxShadow: {
+				input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
+			},
 			backgroundImage: {},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -24,9 +35,9 @@ module.exports = {
 					'cerise': { DEFAULT: '#ed456c', 100: '#380611', 200: '#6f0b22', 300: '#a71134', 400: '#df1645', 500: '#ed456c', 600: '#f06a8a', 700: '#f490a7', 800: '#f8b5c4', 900: '#fbdae2' },
 					'fandango': { DEFAULT: '#a01a7d', 100: '#200519', 200: '#3f0a31', 300: '#5f0f4a', 400: '#7e1562', 500: '#a01a7d', 600: '#d623a6', 700: '#e457be', 800: '#ed8fd4', 900: '#f6c7e9' },
 
-					'lapis_lazuli': { DEFAULT: '#1863a0', 100: '#051420', 200: '#0a2740', 300: '#0e3b60', 400: '#134f80', 500: '#1863a0', 600: '#2086d9', 700: '#55a4e6', 800: '#8dc3ee', 900: '#c6e1f7' }, 
-					'prussian_blue': { DEFAULT: '#0b2a46', 100: '#02090e', 200: '#04111c', 300: '#071a2a', 400: '#092238', 500: '#0b2a46', 600: '#175891', 700: '#2285db', 800: '#6bade8', 900: '#b5d6f3' }, 
-					'celestial_blue': { DEFAULT: '#2894e1', 100: '#061e2f', 200: '#0d3c5d', 300: '#135a8c', 400: '#1978bb', 500: '#2894e1', 600: '#53a9e7', 700: '#7ebfed', 800: '#a9d4f3', 900: '#d4eaf9' }, 
+					'lapis_lazuli': { DEFAULT: '#1863a0', 100: '#051420', 200: '#0a2740', 300: '#0e3b60', 400: '#134f80', 500: '#1863a0', 600: '#2086d9', 700: '#55a4e6', 800: '#8dc3ee', 900: '#c6e1f7' },
+					'prussian_blue': { DEFAULT: '#0b2a46', 100: '#02090e', 200: '#04111c', 300: '#071a2a', 400: '#092238', 500: '#0b2a46', 600: '#175891', 700: '#2285db', 800: '#6bade8', 900: '#b5d6f3' },
+					'celestial_blue': { DEFAULT: '#2894e1', 100: '#061e2f', 200: '#0d3c5d', 300: '#135a8c', 400: '#1978bb', 500: '#2894e1', 600: '#53a9e7', 700: '#7ebfed', 800: '#a9d4f3', 900: '#d4eaf9' },
 					'non_photo_blue': { DEFAULT: '#96e6f8', 100: '#053e4b', 200: '#0a7c96', 300: '#0ebae0', 400: '#4bd5f3', 500: '#96e6f8', 600: '#abebfa', 700: '#c0f0fb', 800: '#d5f5fc', 900: '#eafafe' },
 				},
 				background: 'hsl(var(--background))',
@@ -86,5 +97,18 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		require("tailwindcss-animate"),
+		plugin(function ({ addVariablesForColors, addBase, theme }) {
+			let allColors = flattenColorPalette(theme("colors"));
+			let newVars = Object.fromEntries(
+				Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+			);
+
+			addBase({
+				":root": newVars,
+			});
+		}),		
+	],
 }
+

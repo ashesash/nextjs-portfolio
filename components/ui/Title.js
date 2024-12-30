@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { getContrastYIQ } from "@/utils/getContrastYIQ";
 
 const Title = ({ level = "h1", children, className = "" }) => {
-    const HeadingTag = level; // Dynamically set the heading tag (h1, h2, etc.)
-    const baseStyles = "font-volkhov font-bold text-center tracking-widest uppercase sticky top-0";
+    const HeadingTag = level;
+    const baseStyles = "font-volkhov font-bold text-center tracking-widest uppercase snap-start";
     const sizeStyles = {
         h2: "md:text-9xl sm:text-7xl",
         h3: "md:text-5xl sm:text-3xl",
