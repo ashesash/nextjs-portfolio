@@ -1,6 +1,6 @@
 import '@/styles/globals.css';
 import { ThemeProvider } from 'next-themes';
-import Layout from '@/components/ui/LenisScroll';
+import Layout from '@/components/ui/extra/LenisScroll';
 
 export default function App({ Component, pageProps }) {
   return (

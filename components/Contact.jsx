@@ -9,7 +9,7 @@ import Title from './ui/Title';
 import Button from './ui/Button';
 import IconButton from './ui/IconButton';
 import ContactImg from '../public/assets/contact.png';
-import { Label } from './ui/label';
+import { Label } from './ui/extra/label';
 import { Input } from './ui/input';
 import { cn } from '@/lib/utils';
 

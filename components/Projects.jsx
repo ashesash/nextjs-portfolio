@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import ParallaxCard from './ui/ParallaxCard';
-import { projectData } from './projectData';
-import TextRotate from './ui/TextRotate';
+import { projectData } from './data/projectData.js';
 import Title from './ui/Title';
 
 const Projects = () => {

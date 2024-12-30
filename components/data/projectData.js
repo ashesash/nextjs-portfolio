@@ -1,8 +1,8 @@
-import Blog from '../public/assets/project/news.png';
-import Meydit from '../public/assets/project/meydit.png';
-import AI from '../public/assets/project/aiTravelbot.png';
-import Learnable from '../public/assets/project/learnable.png';
-import Portfolio from '../public/assets/project/portfolio.png';
+import Blog from 'public/assets/project/news.png';
+import Meydit from 'public/assets/project/meydit.png';
+import AI from 'public/assets/project/aiTravelbot.png';
+import Learnable from 'public/assets/project/learnable.png';
+import Portfolio from 'public/assets/project/portfolio.png';
 
 export const projectData = [
     {
