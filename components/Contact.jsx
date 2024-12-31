@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import Image from 'next/image';
-import { motion, useInView, useScroll, useTransform, AnimatePresence, useAnimation, delay } from 'framer-motion';
+import { motion, useInView, AnimatePresence, useAnimation } from 'framer-motion';
 import Link from 'next/link';
 import { AiOutlineMail } from 'react-icons/ai';
 import { FaLinkedinIn, Fa500Px, FaGithub } from 'react-icons/fa';
@@ -9,7 +9,6 @@ import Title from './ui/Title';
 import Button from './ui/Button';
 import IconButton from './ui/IconButton';
 import ContactImg from '../public/assets/contact.png';
-import { Label } from './ui/extra/label';
 import { Input } from './ui/input';
 import { cn } from '@/lib/utils';
 
@@ -120,7 +119,7 @@ const Contact = () => {
     );
 
     return (
-        <div ref={titleRef} className="relative">
+        <div id="contact" ref={titleRef} className="relative">
             <div className="min-h-screen">
                 {/* Title Section */}
                 <AnimatePresence>

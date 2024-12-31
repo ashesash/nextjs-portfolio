@@ -44,7 +44,7 @@ const ParallaxCard = ({
     return (
         <div
             ref={containerRef}
-            className={`flex ${isImageLeft ? 'flex-row' : 'flex-row-reverse'} w-full h-full snap-start py-20 overflow-hidden`}
+            className={`flex md:${isImageLeft ? 'flex-row' : 'flex-row-reverse'} w-full h-full snap-start py-20 overflow-hidden`}
         >
             <div className="w-2/3 flex items-center justify-center ">
                 <motion.div

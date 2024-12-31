@@ -3,10 +3,10 @@ import Head from 'next/head'
 import Main from '../components/Main.jsx'
 import About from '../components/About.jsx'
 import Projects from '../components/Projects.jsx'
-import Contact from '../components/Contact.jsx'
 import Footer from '@/components/Footer.jsx'
-import ContactMini from '@/components/Contact.jsx'
+import Contact from '@/components/Contact.jsx'
 import BackgroundParticles from '@/components/ui/backgroundParticles.jsx'
+import NavMenu from '@/components/NavMenu.jsx'
 
 export default function Home() {
   return (
@@ -19,13 +19,19 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BackgroundParticles />
-      <Navbar />
+      {/* <Navbar /> */}
+      <NavMenu />
       <Main />
       <Projects />
       <About />
-      <ContactMini />  
+      <Contact />  
       {/* <Footer /> */}
     </div>
 
   )
 }
+
+
+// import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from 'react-icons/ai'
+// import { FaLinkedinIn, Fa500Px, FaGithub, FaSun, FaRegMoon } from 'react-icons/fa'
+// import { ImProfile } from 'react-icons/im'
