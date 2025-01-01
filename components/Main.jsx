@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import { motion, AnimatePresence, useAnimation } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Main = () => {
-
     const roles = [
         { name: "+ Mechanical Engineer" },
         { name: "+ Tinkerer" },
         { name: "+ Artist" },
-        // { name: "" },
-    ]
+    ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isInitialDelayComplete, setIsInitialDelayComplete] = useState(false);
@@ -27,15 +25,14 @@ const Main = () => {
 
         return () => {
             clearTimeout(initialDelayTimer);
-            if (intervalId)
-                clearInterval(intervalId);
+            if (intervalId) clearInterval(intervalId);
         };
     }, [roles.length, isInitialDelayComplete]);
 
     return (
-        <div id='home' className='w-full h-screen min-h-screen'>
-            <div className='px-[2%] text-left pt-60'>
-                <div>
+        <div id='home' className='w-full h-screen min-h-screen flex items-center justify-start'>
+            <div className='px-4 md:px-[2%] w-full'>
+                <div className='max-w-7xl mx-auto'>
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -44,12 +41,12 @@ const Main = () => {
                             ease: "easeInOut"
                         }}
                     >
-                        <h1 className='py-4 lg:text-[100px] md:text-[100px] sm:text-[80px]'>
+                        <h1 className='py-2 md:py-4 text-4xl sm:text-6xl md:text-7xl lg:text-[100px] leading-tight'>
                             Hi, I&#39;m
                             <span className='bg-gradient-to-r from-teal-200 via-cyan-700 to-teal-200 bg-clip-text text-transparent bg-[length:200%] [animation:_gradient-move_3s_infinite_linear_reverse]'> Ash!</span>
-                            {/* <span className=''> Ash!</span> */}
                         </h1>
                     </motion.div>
+
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -59,11 +56,12 @@ const Main = () => {
                             delay: 1
                         }}
                     >
-                        <h1 className='py-2 leading-tight lg:text-[90px] md:text-[80px] sm:text-[70px]'>
+                        <h1 className='py-2 leading-tight text-3xl sm:text-5xl md:text-6xl lg:text-[90px]'>
                             Software Engineer
                         </h1>
                     </motion.div>
-                    <div className='w-full h-24 overflow-hidden relative'>
+
+                    <div className='w-full h-16 sm:h-20 md:h-24 overflow-hidden relative'>
                         <AnimatePresence mode="popLayout">
                             {isInitialDelayComplete && (
                                 <motion.h1
@@ -75,7 +73,7 @@ const Main = () => {
                                         duration: 0.7,
                                         ease: "easeOut"
                                     }}
-                                    className=' h-16 w-[vw] lg:text-[90px] md:text-[80px] sm:text-[70px]'
+                                    className='text-3xl sm:text-5xl md:text-6xl lg:text-[90px] h-full flex items-center'
                                 >
                                     {roles[currentIndex].name}
                                 </motion.h1>
@@ -88,4 +86,4 @@ const Main = () => {
     );
 };
 
-export default Main
+export default Main;

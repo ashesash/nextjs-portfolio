@@ -1,4 +1,4 @@
-import Navbar from '../components/Navbar.jsx'
+import Navbar from '../components/ui/extra/Navbar.jsx'
 import Head from 'next/head'
 import Main from '../components/Main.jsx'
 import About from '../components/About.jsx'
@@ -19,7 +19,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <BackgroundParticles />
-      {/* <Navbar /> */}
       <NavMenu />
       <Main />
       <Projects />

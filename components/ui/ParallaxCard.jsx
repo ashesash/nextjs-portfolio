@@ -1,8 +1,8 @@
 'use client'
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, useScroll, useTransform, useSpring, cubicBezier } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import Button from './Button';
 import Title from './Title';
 import HoverCard from './HoverCard';
@@ -21,7 +21,6 @@ const ParallaxCard = ({
     isImageLeft
 }) => {
     const containerRef = useRef(null);
-
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start end", "end start"]
@@ -33,8 +32,8 @@ const ParallaxCard = ({
         restDelta: 0.001
     });
 
-    const imageParallax = useParallax(scrollYProgress, 100);
-    const detailsParallax = useParallax(scrollYProgress, 350);
+    const imageParallax = useParallax(scrollYProgress,-600);
+    const detailsParallax = useParallax(scrollYProgress, 600);
     const scale = useTransform(
         smoothScrollProgress,
         [0, 0.4, 1],
@@ -44,28 +43,31 @@ const ParallaxCard = ({
     return (
         <div
             ref={containerRef}
-            className={`flex md:${isImageLeft ? 'flex-row' : 'flex-row-reverse'} w-full h-full snap-start py-20 overflow-hidden`}
+            className={`
+        flex flex-col md:flex-row w-full h-[70vh] snap-center overflow-hidden gap-8 px-4 md:px-0
+        ${isImageLeft ? 'bg-slate-200' : 'md:flex-row-reverse'}`}
         >
-            <div className="w-2/3 flex items-center justify-center ">
+            {/* Image Container */}
+            <div className="w-full md:w-2/3 flex items-center justify-center">
                 <motion.div
                     style={{
                         y: imageParallax,
                         scale,
                     }}
-                    className="w-full h-full flex items-center justify-center"
+                    className="w-full flex items-center justify-center"
                 >
-                    <div className="relative w-full h-full aspect-square">
+                    <div className="relative w-full aspect-video">
                         <HoverCard
                             image={image}
                             header={title}
-                            className="w-full h-full"
                             imageClassName="object-contain"
                         />
                     </div>
                 </motion.div>
             </div>
 
-            <div className="w-1/3 flex items-center justify-center px-20 h-screen">
+            {/* Content Container */}
+            <div className="w-full md:w-1/3 flex items-center justify-center px-4">
                 <motion.div
                     style={{
                         y: detailsParallax,
@@ -79,16 +81,12 @@ const ParallaxCard = ({
                     <div className="flex justify-center space-x-4">
                         {gitUrl && (
                             <Button className='bg-[length:200%] [animation:_gradient-move_5s_infinite_linear_reverse]'>
-                                <Link href={gitUrl}>
-                                    Github
-                                </Link>
+                                <Link href={gitUrl}>Github</Link>
                             </Button>
                         )}
                         {projectUrl && (
                             <Button className='bg-[length:200%] [animation:_gradient-move_5s_infinite_linear_reverse]'>
-                                <Link href={projectUrl}>
-                                    Website
-                                </Link>
+                                <Link href={projectUrl}>Website</Link>
                             </Button>
                         )}
                     </div>

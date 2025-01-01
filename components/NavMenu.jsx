@@ -124,7 +124,7 @@ const NavMenu = () => {
             className="fixed top-0 right-0 bottom-0 w-[250px] z-40"
         >
             <motion.div
-                className="absolute top-0 right-0 bottom-0 w-full bg-blue-300 shadow-lg"
+                className="absolute top-0 right-0 bottom-0 w-full bg-gradient-to-r from-white via-teal-200 to-cyan-700"
                 variants={sidebar}
             />
             <Navigation />

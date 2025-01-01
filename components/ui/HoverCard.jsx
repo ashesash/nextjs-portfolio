@@ -63,7 +63,7 @@ function HoverCard({ image, header, content, className = "", imageClassName = ""
                 style={{
                     boxShadow: isHovered
                         ? 'grey 0 0 30px 5px, white 0 0 0 1px, #47d4ff 0 30px 60px 0'
-                        : 'rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px'
+                        : ' rgb(38, 57, 77) 0px 20px 30px -10px;'
                 }}
             >
                     {image && (

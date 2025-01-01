@@ -10,7 +10,7 @@ export const projectData = [
         title: 'Meydit',
         img: Meydit,
         projectUrl: 'https://meyd.it',
-        tech: 'ReactJS  Next.js  Redux  Stripe',
+        tech: 'ReactJS  Next.js  Redux  Stripe AWS',
         description: 'A marketplace for slow fashion. Users can connect with selected creatives on the platform to get bespoke pieces made for them in addition to other services to prolong lives their clothes.',
     },
     {
@@ -37,7 +37,7 @@ export const projectData = [
         img: Learnable,
         gitUrl: 'https://github.com/ashesash/react-mentoring-platform',
         // projectUrl: 'https://linkedin.com',
-        tech: 'HTML, CSS, React, Django',
+        tech: 'HTML CSS React Django',
         description: 'A platform for registering workshops.',
     },
     // {
