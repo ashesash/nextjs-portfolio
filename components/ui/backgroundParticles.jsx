@@ -32,12 +32,12 @@ const BackgroundParticles = () => {
     // Draw circle
     ctx.beginPath();
     ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
-    ctx.fillStyle = '#006483';
+    ctx.fillStyle = '#0079b4';
     ctx.fill();
 
     // Create soft gradient for better look
     const gradient = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
-    gradient.addColorStop(0, '#6cddff');
+    gradient.addColorStop(0, '#b2edff');
     gradient.addColorStop(1, 'rgba(255,255,255,0)');
     ctx.fillStyle = gradient;
     ctx.fill();
@@ -55,11 +55,11 @@ const BackgroundParticles = () => {
 
     // Particle material
     const particleMaterial = new THREE.PointsMaterial({
-      color: 0x006483,
+      color: 0x12688c,
       size: 0.1,
       map: texture,
       transparent: true,
-      opacity: 0.9,
+      opacity: 0.85,
       blending: THREE.AdditiveBlending,
       depthWrite: false
     });

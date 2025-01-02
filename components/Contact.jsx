@@ -52,7 +52,7 @@ const Contact = () => {
 
             animateSequence();
         } else if (isMobile) {
-            // On mobile, show everything immediately
+            // On mobile
             setShowTitle(true);
             setShowForm(true);
         }
@@ -67,7 +67,7 @@ const Contact = () => {
             transition: {
                 duration: 1,
                 delay: 0.5,
-                ease: "easeIn"
+                ease: "easeInOut"
             }
         }
     };
@@ -102,7 +102,7 @@ const Contact = () => {
                         </a>
                     </div>
                 </div>
-                <div className="col-span-4 lg:col-span-2 w-full h-auto shadow-xl shadow-gray-100 dark:shadow-gray-600 bg-slate-50 dark:bg-slate-900 rounded-xl lg:p-4">
+                <div className="col-span-4 lg:col-span-2 w-full h-auto shadow-xl shadow-blizzard-blue-200 dark:shadow-astro-blue-900 bg-slate-50 dark:bg-slate-900 rounded-xl p-4">
                     <form method="POST" name="ContactForm" action="https://formspree.io/f/mnqrvbwy" className='lg:p-4'>
                         <input type="hidden" name="form-name" value="contact" />
                         <LabelInputContainer>
@@ -133,6 +133,17 @@ const Contact = () => {
             </div>
         </div>
     );
+
+    const Footer = () => {
+        const date = new Date().getFullYear()
+        return (
+            <footer className='w-full py-4 mt-8'>
+                <div className="flex flex-col items-center px-10 text-center text-sm text-slate-500">
+                        <div> © Crafted by yours truly with Next.js, Tailwind, Motion & Netlify. {date} </div>
+                    </div>
+            </footer>
+        )
+    }
 
     return (
         <div id="contact" ref={titleRef} className="relative overflow-hidden">
@@ -174,7 +185,7 @@ const Contact = () => {
                             initial="initial"
                             animate={controls}
                             variants={slideVariants}
-                            className="absolute inset-0 h-screen bg-gradient-to-r from-teal-200 via-cyan-700 to-teal-200 z-10"
+                            className="absolute inset-0 h-[150vh] z-10 bg-gradient-to-r from-astro-blue-200 to-blizzard-blue-400 dark:bg-gradient-to-r dark:from-blizzard-blue-950 dark:to-astro-blue-800"
                         />
                         <AnimatePresence>
                             {showForm && (
@@ -198,6 +209,7 @@ const Contact = () => {
                     </div>
                 )}
             </div>
+            <Footer />
         </div>
     );
 };

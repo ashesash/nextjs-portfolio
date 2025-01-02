@@ -38,9 +38,9 @@ const Path = props => (
 const MenuToggle = ({ toggle }) => (
     <button
         onClick={toggle}
-        className="absolute top-[32px] right-[22px] w-[40px] h-[40px] rounded-full bg-transparent cursor-pointer z-50"
+        className="absolute top-[32px] right-[22px] w-[38px] h-[38px] rounded-full bg-transparent cursor-pointer z-50"
     >
-        <svg width="23" height="23" viewBox="0 0 23 23">
+        <svg width="18" height="18" viewBox="0 0 18 20">
             <Path
                 variants={{
                     closed: { d: "M 2 2.5 L 20 2.5" },
@@ -86,9 +86,9 @@ const MenuItem = ({ href, children }) => {
             }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="mb-5 flex items-center cursor-pointer"
+            className="mb-10 flex items-center cursor-pointer"
         >
-            <Link href={href} className="text-2xl font-bold">
+            <Link href={href} className="text-2xl text-black dark:text-slate-50 ">
                 {children}
             </Link>
         </motion.li>
@@ -143,7 +143,7 @@ const NavMenu = () => {
             className="fixed top-0 right-0 bottom-0 w-[250px] z-40"
         >
             <motion.div
-                className="absolute top-0 right-0 bottom-0 w-full bg-gradient-to-r from-white via-teal-200 to-cyan-700 dark:bg-red-700"
+                className="absolute top-0 right-0 bottom-0 w-full bg-gradient-to-r from-astro-blue-200 to-blizzard-blue-400 dark:bg-gradient-to-r dark:from-blizzard-blue-950 dark:to-astro-blue-800"
                 variants={sidebar}
             />
             <Navigation />

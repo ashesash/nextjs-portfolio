@@ -1,10 +1,8 @@
 'use client'
-import { useRef, useEffect } from 'react';
 import Head from 'next/head'
 import Main from '../components/Main.jsx'
 import About from '../components/About.jsx'
 import Projects from '../components/Projects.jsx'
-import Footer from '@/components/Footer.jsx'
 import Contact from '@/components/Contact.jsx'
 import BackgroundParticles from '@/components/ui/backgroundParticles.jsx'
 import NavMenu from '@/components/NavMenu.jsx'
@@ -35,7 +33,6 @@ export default function Home() {
       <About />
       <Projects />
       <Contact />
-      {/* <Footer /> */}
     </div>
 
   )

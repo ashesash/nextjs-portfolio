@@ -27,10 +27,10 @@ const About = () => {
     // Adjusted scale values and ranges
     const scale = useTransform(scrollYProgress, [0, 0.3, 0.5], [1, 30, 80]);
     const textOpacity = useTransform(scrollYProgress, [0.2, 0.4], [1, 0]);
-    const aboutScale = useTransform(smoothScrollProgress, [0.3, 0.4], [0, 1]);
-    const aboutOpacity1 = useTransform(smoothScrollProgress, [0.55, 0.65], [0, 1]);
-    const aboutOpacity2 = useTransform(smoothScrollProgress, [0.65, 0.75], [0, 1]);
-    const aboutOpacity3 = useTransform(smoothScrollProgress, [0.75, 0.85], [0, 1]);
+    const aboutScale = useTransform(smoothScrollProgress, [0.3, 0.7], [0, 1]);
+    const aboutOpacity1 = useTransform(smoothScrollProgress, [0.2, 0.45], [0, 1]);
+    const aboutOpacity2 = useTransform(smoothScrollProgress, [0.5, 0.75], [0, 1]);
+    const aboutOpacity3 = useTransform(smoothScrollProgress, [0.8, 0.95], [0, 1]);
 
     const [isMobile, setIsMobile] = useState(false);
 
@@ -45,18 +45,20 @@ const About = () => {
 
     if (isMobile) {
         return (
-            <div id="about" className="relative w-full min-h-screen overflow-hidden" ref={containerRef}>
-                <div className="sticky top-1/2 w-full grid place-items-center z-10">
-                    <Title level="h2">About</Title>
+            <div id="about" className="relative w-full min-h-[200vh]" ref={containerRef}>
+                <div className="min-h-screen">
+                    <div className="sticky top-14 w-full grid place-items-center z-10 my-20">
+                        <Title level="h2">About</Title>
+                    </div>
                 </div>
                 <motion.div
-                    className="relative mt-[100vh] py-20 px-6"
+                    className="sticky top-40 h-1/2 px-6 flex items-center"
                     style={{ scale: aboutScale }}
                 >
-                    <div className="max-w-3xl mx-auto space-y-6 text-gray-900 dark:text-[#ecf0f3] text-sm md:text-lg">
-                        <motion.p style={{ opacity: aboutOpacity1 }}>{paragraph1}</motion.p>
-                        <motion.p style={{ opacity: aboutOpacity2 }}>{paragraph2}</motion.p>
-                        <motion.p style={{ opacity: aboutOpacity3 }}>{paragraph3}</motion.p>
+                    <div className="max-w-3xl mx-auto space-y-6 text-sm text-justify md:text-lg">
+                        <motion.p style={{ opacity: aboutOpacity1 }} className="bg-white dark:bg-transparent">{paragraph1}</motion.p>
+                        <motion.p style={{ opacity: aboutOpacity2 }} className="bg-white dark:bg-transparent">{paragraph2}</motion.p>
+                        <motion.p style={{ opacity: aboutOpacity3 }} className="bg-white dark:bg-transparent">{paragraph3}</motion.p>
                     </div>
                 </motion.div>
             </div>
@@ -81,10 +83,10 @@ const About = () => {
                 className="relative py-2 px-6"
                 style={{ scale: aboutScale }}
             >
-                <div className="max-w-3xl mx-auto space-y-6 text-gray-900 dark:text-[#ecf0f3] md:text-lg mb-40">
-                    <motion.p style={{ opacity: aboutOpacity1 }}>{paragraph1}</motion.p>
-                    <motion.p style={{ opacity: aboutOpacity2 }}>{paragraph2}</motion.p>
-                    <motion.p style={{ opacity: aboutOpacity3 }}>{paragraph3}</motion.p>
+                <div className="max-w-3xl mx-auto space-y-6 md:text-xl mb-40 text-justify">
+                    <motion.p style={{ opacity: aboutOpacity1 }} className="bg-white dark:bg-transparent">{paragraph1}</motion.p>
+                    <motion.p style={{ opacity: aboutOpacity2 }} className="bg-white dark:bg-transparent">{paragraph2}</motion.p>
+                    <motion.p style={{ opacity: aboutOpacity3 }} className="bg-white dark:bg-transparent">{paragraph3}</motion.p>
                 </div>
             </motion.div>
         </div>

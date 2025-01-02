@@ -11,7 +11,8 @@ function useParallax(value, distance) {
     return useTransform(value, [0, 1], [-distance, distance]);
 }
 
-const bgColors = ['bg-slate-200', 'bg-blue-200', 'bg-green-200', 'bg-purple-200'];
+const bgColorsDark = ['bg-astro-blue-200', 'bg-astro-blue-300', 'bg-blizzard-blue-400', 'bg-blizzard-blue-500'];
+const bgColors = ['dark:bg-blizzard-blue-800', 'dark:bg-astro-blue-900', 'dark:bg-astro-blue-950', 'dark:bg-blizzard-blue-950'];
 
 const ParallaxCard = ({
     i,
@@ -40,28 +41,26 @@ const ParallaxCard = ({
     const cardScale = useTransform(scrollYProgress, [i * .25, 1], [1, targetScale]);
     const imageParallax = useParallax(scrollYProgress, 100);
     const detailsParallax = useParallax(scrollYProgress, 400);
-    const techParallax = useParallax(scrollYProgress, -100)
     const scale = useTransform(
         smoothScrollProgress,
         [0, 0.5, 1],
         [0.4, 0.9, 0.4]
     );
 
-
     return (
         <div className='min-h-screen sticky top-0'>
             <motion.div
                 ref={containerRef}
-                className={`h-3/4 py-4 m-4 rounded-xl sticky ${bgColors[i]}`}
+                className={`h-3/4 py-4 m-4 rounded-xl sticky ${bgColors[i]} ${bgColorsDark[i]}`}
                 style={{
                     cardScale,
-                    top: `calc(10vh + ${i * 2}vh)`
+                    top: `calc(1vh + ${i * 2}vh)`
                 }}
             >
-                <Title level='h3'>{title}</Title>
+                <Title level='h3' className='pt-10'>{title}</Title>
                 <div
                     className={`
-        flex flex-col md:flex-row w-full h-[70vh] overflow-hidden px-4 md:px-0
+        flex flex-col md:flex-row w-full h-[70vh] overflow-hidden
         ${isImageLeft ? '' : 'md:flex-row-reverse'}`}
                 >
                     {/* Image Container */}
@@ -90,20 +89,13 @@ const ParallaxCard = ({
                             }}
                             className="text-center"
                         >
-                            <p className="pb-4 text-black text-justify">{description}</p>
-                            <motion.div
-                                style={{
-                                    // y: techParallax,
-                                }}
-                                className="text-center overflow-hidden"
-                            >
-                                <Title level='h6'>Tech Used</Title>
-                                <p className="pb-4 flex flex-col text-black">{tech}</p>
-                            </motion.div>
+                            <p className="pb-4 text-justify">{description}</p>
+                            <Title level='h6'>Tech Used</Title>
+                            <p className="pb-4 flex flex-col">{tech}</p>
                         </motion.div>
                     </div>
                 </div>
-                <div className="flex justify-center space-x-4">
+                <div className="flex justify-center space-x-4 pb-10">
                     {gitUrl && (
                         <Button className='bg-[length:200%] [animation:_gradient-move_5s_infinite_linear_reverse]'>
                             <Link href={gitUrl}>Github</Link>

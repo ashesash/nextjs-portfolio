@@ -10,11 +10,11 @@ html {
 
 @layer base {
   body {
-    @apply bg-stone-50 text-[#1f2937] dark:bg-[#000515] dark:text-[#ecf0f3] tracking-wide 
+    @apply bg-stone-50 text-slate-800 dark:bg-[#000515] dark:text-[#ecf0f3] tracking-wide 
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold text-[#1f2937] dark:text-slate-200 
+    @apply font-bold text-slate-800 dark:text-slate-200 
   }
 
   h1 {
@@ -31,7 +31,6 @@ html {
 
   button {
     @apply rounded-lg uppercase 
-    /* @apply shadow-lg shadow-gray-400 dark:shadow-gray-700 rounded-lg uppercase  */
   }
   :root {
     --background: 0 0% 100%;
@@ -95,18 +94,10 @@ html {
   }
 }
 
-/* @keyframes gradient-button {
-  0%,100% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 100% 100%;
-  }
-} */
-
-
 @layer base {
   * {
-    @apply border-border;}
+    @apply border-border;
+  }
   body {
-    @apply h-screen w-screen bg-background text-foreground;}} 
+    @apply h-screen w-screen bg-background text-foreground;
+  }} 

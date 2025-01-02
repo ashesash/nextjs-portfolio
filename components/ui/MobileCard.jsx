@@ -46,12 +46,13 @@ const MobileCard = ({
 
     const cardScale = useTransform(scrollYProgress, [i * .25, 1], [1, targetScale]);
 
-    const bgColors = ['bg-slate-200', 'bg-blue-200', 'bg-green-200', 'bg-purple-200'];
+    const bgColors = ['bg-blizzard-blue-300', 'bg-astro-blue-400', 'bg-blue-whale-400', 'bg-congress-blue-400'];
+    const bgColorsDark = ['dark:bg-blizzard-blue-950', 'dark:bg-astro-blue-950', 'dark:bg-blue-whale-950', 'dark:bg-congress-blue-950'];
 
     return (
         <div className='min-h-screen sticky top-0'>
             <motion.div
-                className={`h-[70vh] px-4 py-4 flex flex-col items-center my-10 sticky rounded-xl m-4 ${bgColors[i]}`}
+                className={`h-[70vh] px-4 py-4 flex flex-col items-center my-10 sticky rounded-xl m-4 ${bgColors[i]} ${bgColorsDark[i]}`}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{
@@ -61,11 +62,9 @@ const MobileCard = ({
                 variants={containerVariants}
                 style={{
                     // cardScale, 
-                    // top: `calc(5vh + ${i * 25}px)`
                     top: `calc(10vh + ${i * 2}vh)`
                 }}
             >
-                {/* Image */}
                 <motion.div
                     className="w-full aspect-video mb-14"
                     variants={itemVariants}
@@ -83,7 +82,7 @@ const MobileCard = ({
                 </motion.div>
 
                 <motion.p
-                    className="text-black text-justify mb-4"
+                    className="text-justify mb-4"
                     variants={itemVariants}
                 >
                     {description}
@@ -91,7 +90,7 @@ const MobileCard = ({
 
                 <motion.div variants={itemVariants}>
                     <Title level='h6'>Tech Used</Title>
-                    <p className="text-black mb-4">{tech}</p>
+                    <p className="mb-4">{tech}</p>
                 </motion.div>
 
                 <motion.div

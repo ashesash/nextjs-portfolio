@@ -30,7 +30,7 @@ const Main = () => {
     }, [roles.length, isInitialDelayComplete]);
 
     return (
-        <div id='home' className='w-full h-screen min-h-screen flex items-center justify-start'>
+        <div id='home' className='w-full h-screen min-h-screen flex items-center justify-start font-philosopher'>
             <div className='px-4 md:px-[2%] w-full'>
                 <div className='max-w-7xl mx-auto'>
                     <motion.div
@@ -41,9 +41,9 @@ const Main = () => {
                             ease: "easeInOut"
                         }}
                     >
-                        <h1 className='py-2 md:py-4 text-4xl sm:text-6xl md:text-7xl lg:text-[100px] leading-tight'>
+                        <h1 className='py-2 md:py-4 text-6xl md:text-7xl lg:text-9xl leading-tight'>
                             Hi, I&#39;m
-                            <span className='bg-gradient-to-r from-teal-200 via-cyan-700 to-teal-200 bg-clip-text text-transparent bg-[length:200%] [animation:_gradient-move_3s_infinite_linear_reverse]'> Ash!</span>
+                            <span className='bg-gradient-to-r  from-astro-blue-200 via-blizzard-blue-600 to-astro-blue-200 bg-clip-text text-transparent bg-[length:200%] [animation:_gradient-move_3s_infinite_linear_reverse]'> Ash!</span>
                         </h1>
                     </motion.div>
 
