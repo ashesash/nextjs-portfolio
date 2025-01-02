@@ -6,7 +6,7 @@ import Projects from '../components/Projects.jsx'
 import Contact from '@/components/Contact.jsx'
 import BackgroundParticles from '@/components/ui/backgroundParticles.jsx'
 import NavMenu from '@/components/NavMenu.jsx'
-import Lenis from 'lenis';
+// import Lenis from 'lenis';
 
 export default function Home() {
   // useEffect(() => {
@@ -19,7 +19,6 @@ export default function Home() {
   // })
 
   return (
-    // <div className="min-h-screen w-full overflow-y-auto scroll-smooth">
     <div className="min-h-screen w-full font-trirong">
       <Head>
         <title>Ash | Software Engineer</title>
