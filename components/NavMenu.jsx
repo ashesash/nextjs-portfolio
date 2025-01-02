@@ -1,7 +1,9 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useCycle } from "framer-motion";
 import Link from "next/link";
+import { PiSunBold, PiMoonBold } from 'react-icons/pi'
+import { useTheme, resolvedTheme } from 'next-themes'
 
 const sidebar = {
     open: (height = 500) => ({
@@ -13,7 +15,7 @@ const sidebar = {
         }
     }),
     closed: {
-        clipPath: "circle(25px at 184px 50px)",
+        clipPath: "circle(20px at 200px 50px)",
         transition: {
             delay: 0.5,
             type: "spring",
@@ -36,7 +38,7 @@ const Path = props => (
 const MenuToggle = ({ toggle }) => (
     <button
         onClick={toggle}
-        className="absolute top-[28px] right-[28px] w-[50px] h-[50px] rounded-full bg-transparent cursor-pointer z-50"
+        className="absolute top-[32px] right-[22px] w-[40px] h-[40px] rounded-full bg-transparent cursor-pointer z-50"
     >
         <svg width="23" height="23" viewBox="0 0 23 23">
             <Path
@@ -112,6 +114,23 @@ const Navigation = () => (
     </motion.ul>
 );
 
+const DarkToggle = (toggle) => {
+    const { theme, setTheme } = useTheme()
+    const [mounted, setMounted] = useState(false)
+    useEffect(() => setMounted(true), [])
+
+    return (
+        <div>
+            <button
+                className="absolute top-10 right-20 text-2xl"
+                onClick={() => setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')}
+            >
+                {mounted && (theme === 'dark' || resolvedTheme === 'dark') ? <PiSunBold /> : <PiMoonBold />}
+            </button>
+        </div>
+    )
+};
+
 const NavMenu = () => {
     const [isOpen, toggleOpen] = useCycle(false, true);
     const containerRef = useRef(null);
@@ -124,10 +143,11 @@ const NavMenu = () => {
             className="fixed top-0 right-0 bottom-0 w-[250px] z-40"
         >
             <motion.div
-                className="absolute top-0 right-0 bottom-0 w-full bg-gradient-to-r from-white via-teal-200 to-cyan-700"
+                className="absolute top-0 right-0 bottom-0 w-full bg-gradient-to-r from-white via-teal-200 to-cyan-700 dark:bg-red-700"
                 variants={sidebar}
             />
             <Navigation />
+            <DarkToggle/>
             <MenuToggle toggle={() => toggleOpen()} />
         </motion.nav>
     );

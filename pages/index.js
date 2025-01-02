@@ -1,4 +1,5 @@
-import Navbar from '../components/ui/extra/Navbar.jsx'
+'use client'
+import { useRef, useEffect } from 'react';
 import Head from 'next/head'
 import Main from '../components/Main.jsx'
 import About from '../components/About.jsx'
@@ -7,8 +8,18 @@ import Footer from '@/components/Footer.jsx'
 import Contact from '@/components/Contact.jsx'
 import BackgroundParticles from '@/components/ui/backgroundParticles.jsx'
 import NavMenu from '@/components/NavMenu.jsx'
+import Lenis from 'lenis';
 
 export default function Home() {
+  // useEffect(() => {
+  //   const lenis = new Lenis()
+  //   function raf(time) {
+  //     lenis.raf(time)
+  //     requestAnimationFrame(raf)
+  //   }
+  //   requestAnimationFrame(raf)
+  // })
+
   return (
     // <div className="min-h-screen w-full overflow-y-auto scroll-smooth">
     <div className="min-h-screen w-full font-trirong">
@@ -21,16 +32,11 @@ export default function Home() {
       <BackgroundParticles />
       <NavMenu />
       <Main />
-      <Projects />
       <About />
-      <Contact />  
+      <Projects />
+      <Contact />
       {/* <Footer /> */}
     </div>
 
   )
 }
-
-
-// import { AiOutlineClose, AiOutlineMenu, AiOutlineMail } from 'react-icons/ai'
-// import { FaLinkedinIn, Fa500Px, FaGithub, FaSun, FaRegMoon } from 'react-icons/fa'
-// import { ImProfile } from 'react-icons/im'

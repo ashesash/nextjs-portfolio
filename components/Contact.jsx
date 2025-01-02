@@ -1,3 +1,4 @@
+'use client';
 import React, { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, useInView, AnimatePresence, useAnimation } from 'framer-motion';
@@ -72,13 +73,13 @@ const Contact = () => {
     };
 
     const ContactForm = () => (
-        <div className='flex min-h-screen w-screen items-center justify-center md:px-8 md:py-8'>
+        <div className='flex min-h-screen w-screen items-center justify-center md:px-8 md:py-8 sticky top-0'>
             <div className='flex flex-col md:flex-row w-3/4 md:w-full max-w-6xl gap-10 items-center justify-center'>
                 <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:w-1/2">
                     <div className="hover:scale-105 ease-in duration-300">
                         <Image src={ContactImg} alt="a cartoon image of me holding a coffee" />
                     </div>
-                    <div className="flex flex-row md:flex-col px-2">
+                    <div className="flex flex-row md:flex-col px-2 ">
                         <a href="https://www.linkedin.com/in/aishwaryasahu/" target="_blank" rel="noreferrer" className='py-2'>
                             <IconButton className='bg-[length:200%] [animation:_gradient-move_3s_infinite_linear_reverse]'>
                                 <FaLinkedinIn />
@@ -101,7 +102,7 @@ const Contact = () => {
                         </a>
                     </div>
                 </div>
-                <div className="col-span-4 lg:col-span-2 w-full h-auto shadow-md shadow-gray-100 rounded-xl lg:p-4">
+                <div className="col-span-4 lg:col-span-2 w-full h-auto shadow-xl shadow-gray-100 dark:shadow-gray-600 bg-slate-50 dark:bg-slate-900 rounded-xl lg:p-4">
                     <form method="POST" name="ContactForm" action="https://formspree.io/f/mnqrvbwy" className='lg:p-4'>
                         <input type="hidden" name="form-name" value="contact" />
                         <LabelInputContainer>
