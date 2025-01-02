@@ -1,9 +1,8 @@
-"use client";
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useCycle } from "framer-motion";
 import Link from "next/link";
 import { PiSunBold, PiMoonBold } from 'react-icons/pi'
-import { useTheme, resolvedTheme } from 'next-themes'
+import { useTheme } from 'next-themes'
 
 const sidebar = {
     open: (height = 500) => ({
@@ -88,14 +87,14 @@ const MenuItem = ({ href, children }) => {
             whileTap={{ scale: 0.95 }}
             className="mb-10 flex items-center cursor-pointer"
         >
-            <Link href={href} className="text-2xl text-black dark:text-slate-50 ">
+            <Link href={href} className="text-2xl text-black dark:text-slate-50">
                 {children}
             </Link>
         </motion.li>
     );
 };
 
-const Navigation = () => (
+const Navigation = ({ isOpen }) => (
     <motion.ul
         variants={{
             open: {
@@ -105,7 +104,7 @@ const Navigation = () => (
                 transition: { staggerChildren: 0.05, staggerDirection: -1 }
             }
         }}
-        className="p-6 absolute top-24 right-8 z-50"
+        className={`p-6 absolute top-24 right-8 z-50 uppercase font-philosopher ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
     >
         <MenuItem href="/">Home</MenuItem>
         <MenuItem href="/#projects">Projects</MenuItem>
@@ -114,7 +113,7 @@ const Navigation = () => (
     </motion.ul>
 );
 
-const DarkToggle = (toggle) => {
+const DarkToggle = () => {
     const { theme, setTheme } = useTheme()
     const [mounted, setMounted] = useState(false)
     useEffect(() => setMounted(true), [])
@@ -123,9 +122,9 @@ const DarkToggle = (toggle) => {
         <div>
             <button
                 className="absolute top-10 right-20 text-2xl"
-                onClick={() => setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')}
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             >
-                {mounted && (theme === 'dark' || resolvedTheme === 'dark') ? <PiSunBold /> : <PiMoonBold />}
+                {mounted && theme === 'dark' ? <PiSunBold /> : <PiMoonBold />}
             </button>
         </div>
     )
@@ -146,8 +145,8 @@ const NavMenu = () => {
                 className="absolute top-0 right-0 bottom-0 w-full bg-gradient-to-r from-astro-blue-200 to-blizzard-blue-400 dark:bg-gradient-to-r dark:from-blizzard-blue-950 dark:to-astro-blue-800"
                 variants={sidebar}
             />
-            <Navigation />
-            <DarkToggle/>
+            <Navigation isOpen={isOpen} />
+            <DarkToggle />
             <MenuToggle toggle={() => toggleOpen()} />
         </motion.nav>
     );

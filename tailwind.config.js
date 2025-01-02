@@ -193,17 +193,9 @@ module.exports = {
 
 			},
 			fontFamily: {
-				philosopher: "philosopher",
-				merriweather: "merriweather",
-				martel: "martel",
-				volkhov: "volkhov",
-				voces: "voces",
-				spacegrotesk: "space-grotesk",
-				amethysta: "amethysta",
-				trirong: "trirong",
-				crimson: "crimson-pro",
-				trykker: "trykker",
-
+				philosopher: ['var(--font-philosopher)'],
+				merriweather: ['var(--font-merriweather)'],
+				trirong: ['var(--font-trirong)'],
 			},
 		},
 	},
