@@ -50,7 +50,7 @@ const MobileCard = ({
     const bgColorsDark = ['dark:bg-blizzard-blue-950', 'dark:bg-astro-blue-950', 'dark:bg-blue-whale-950', 'dark:bg-congress-blue-950'];
 
     return (
-        <div className='min-h-screen sticky top-0'>
+        <div className='h-[150vh] sticky top-0'>
             <motion.div
                 className={`min-h-fit h-[80vh] sm:h-[100vw] px-4 py-4 flex flex-col items-center my-10 sticky rounded-xl m-4 ${bgColors[i]} ${bgColorsDark[i]}`}
                 initial="hidden"

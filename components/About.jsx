@@ -5,7 +5,7 @@ import Title from './ui/Title';
 
 const About = () => {
     const paragraph1 =
-        "I've lived in a few different places before settling in Sydney—India, Bahrain, Canada, and Sweden—each one leaving its mark on me and shaping the way I approach life and work.These experiences have given me a unique perspective and a love for diverse cultures, which is why I'm so happy to now call Sydney home.";
+        "I've lived in a few different places before settling in Sydney—India, Bahrain, Canada, and Sweden—each one leaving its mark on me and shaping the way I approach life and work. These experiences have given me a unique perspective and a love for diverse cultures.";
     const paragraph2 =
         "Currently, I'm a Full Stack Developer at Meydit, where I work on everything from revamping the frontend and improving backend notifications to integrating machine learning into new products.";
     const paragraph3 =

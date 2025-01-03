@@ -24,20 +24,28 @@ const sidebar = {
     }
 };
 
-const Path = props => (
-    <motion.path
-        fill="transparent"
-        strokeWidth="3"
-        stroke="hsl(0, 0%, 18%)"
-        strokeLinecap="round"
-        {...props}
-    />
-);
+const Path = (props) => {
+    const { theme } = useTheme();
+
+    const strokeColor =
+        theme === 'dark' ? 'hsl(0, 0%, 80%)' : 'hsl(0, 0%, 5%)';
+
+    return (
+        <motion.path
+            fill="transparent"
+            strokeWidth="3"
+            stroke={strokeColor}
+            strokeLinecap="round"
+            {...props}
+        />
+    );
+};
 
 const MenuToggle = ({ toggle }) => (
     <button
         onClick={toggle}
         className="absolute top-[32px] right-[12px] w-[38px] h-[38px] rounded-full bg-transparent cursor-pointer pointer-events-auto"
+        aria-label="Burger Menu"
     >
         {/* burger */}
         <svg width="18" height="18" viewBox="0 0 20 20">
@@ -124,6 +132,7 @@ const DarkToggle = () => {
         <button
             className="fixed top-8 right-20 text-xl pointer-events-auto z-50 bg-astro-blue-700 rounded-full p-2"
             onClick={() => setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')}
+            aria-label="Dark Mode Toggle"
         >
             {mounted && (theme === 'dark' || resolvedTheme === 'dark') ? <PiSunBold /> : <PiMoonBold />}
         </button>

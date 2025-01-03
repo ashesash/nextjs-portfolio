@@ -1,7 +1,7 @@
 import React from "react";
 
 const Button = ({ children, onClick, variant = "primary", className = "" }) => {
-    const baseStyles = "px-4 py-2 rounded font-merriweather font-semibold  hover:text-blizzard-blue-400";
+    const baseStyles = "px-4 py-2 rounded font-merriweather font-semibold text-astro-blue-700  hover:text-blizzard-blue-400";
     const variants = {
         primary: "bg-slate-200 dark:bg-slate-800",
         secondary: "bg-blue-500",
@@ -12,6 +12,7 @@ const Button = ({ children, onClick, variant = "primary", className = "" }) => {
             <button
                 className={`${baseStyles} ${variants[variant]} ${className}`}
                 onClick={onClick}
+                aria-label="Base Button"
             >
                 {children}
             </button>
