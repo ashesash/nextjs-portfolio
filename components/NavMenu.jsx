@@ -3,7 +3,6 @@ import { motion, useCycle } from "framer-motion";
 import Link from "next/link";
 import { PiSunBold, PiMoonBold } from 'react-icons/pi'
 import { useTheme, resolvedTheme } from 'next-themes'
-import { useTheme, resolvedTheme } from 'next-themes'
 
 const sidebar = {
     open: (height = 1000) => ({
