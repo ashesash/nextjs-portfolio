@@ -31,8 +31,8 @@ const Main = () => {
 
     return (
         <div id='home' className='w-full h-screen min-h-screen flex items-center font-philosopher'>
-            <div className='max-sm:flex px-4 md:px-[2%] min-w-max'>
-                <div className='max-w-7xl mx-auto'>
+            <div className='max-sm:flex px-4 md:px-[2%] w-full'>
+                <div className='max-w-8xl'>
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -41,9 +41,9 @@ const Main = () => {
                             ease: "easeInOut"
                         }}
                     >
-                        <h1 className='py-2 md:py-4 text-6xl md:text-7xl lg:text-9xl leading-tight'>
+                        <h1 className='py-2 md:py-4 text-6xl md:text-7xl lg:text-9xl leading-tight text-astro-blue-900'>
                             Hi, I&#39;m
-                            <span className='bg-gradient-to-r  from-astro-blue-200 via-blizzard-blue-600 to-astro-blue-200 bg-clip-text text-transparent bg-[length:200%] [animation:_gradient-move_3s_infinite_linear_reverse]'> Ash!</span>
+                            <span className='bg-gradient-to-r from-astro-blue-200 via-blizzard-blue-600 to-astro-blue-200 bg-clip-text text-transparent bg-[length:200%] [animation:_gradient-move_3s_infinite_linear_reverse]'> Ash!</span>
                         </h1>
                     </motion.div>
                     <motion.div
@@ -55,28 +55,30 @@ const Main = () => {
                             delay: 1
                         }}
                     >
-                        <h1 className='py-2 leading-tight text-4xl md:text-6xl lg:text-8xl'>
+                        <h1 className='py-2 leading-tight text-4xl md:text-6xl lg:text-[90px]'>
                             Software Engineer
                         </h1>
                     </motion.div>
                     <div className='w-full py-2 leading-normal overflow-hidden relative'>
-                        <AnimatePresence mode="popLayout">
-                            {isInitialDelayComplete && (
-                                <motion.h1
-                                    key={currentIndex}
-                                    initial={{ y: 40, opacity: 1 }}
-                                    animate={{ y: -1, opacity: 1 }}
-                                    exit={{ y: -51, opacity: 0 }}
-                                    transition={{
-                                        duration: 0.7,
-                                        ease: "easeOut"
-                                    }}
-                                    className='text-3xl md:text-6xl lg:text-8xl flex items-center w-full'
-                                >
-                                    {roles[currentIndex].name}
-                                </motion.h1>
-                            )}
-                        </AnimatePresence>
+                        <div className='relative h-24'>
+                            <AnimatePresence mode="popLayout">
+                                {isInitialDelayComplete && (
+                                    <motion.h1
+                                        key={currentIndex}
+                                        initial={{ y: 40, opacity: 0 }}
+                                        animate={{ y: 0, opacity: 1 }}
+                                        exit={{ y: -40, opacity: 0 }}
+                                        transition={{
+                                            duration: 0.7,
+                                            ease: "easeOut"
+                                        }}
+                                        className='text-3xl md:text-6xl lg:text-8xl absolute w-full text-astro-blue-900'
+                                    >
+                                        {roles[currentIndex].name}
+                                    </motion.h1>
+                                )}
+                            </AnimatePresence>
+                        </div>
                     </div>
                 </div>
             </div>

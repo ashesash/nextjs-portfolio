@@ -48,13 +48,13 @@ const ParallaxCard = ({
     );
 
     return (
-        <div className='min-h-screen sticky top-0'>
+        <div className='h-[150vh] sticky top-0'>
             <motion.div
                 ref={containerRef}
-                className={`h-3/4 py-4 m-4 rounded-xl sticky ${bgColors[i]} ${bgColorsDark[i]}`}
+                className={`min-h-fit py-4 m-4 rounded-xl sticky ${bgColors[i]} ${bgColorsDark[i]}`}
                 style={{
                     cardScale,
-                    top: `calc(1vh + ${i * 3}vh)`
+                    top: `calc(2vh + ${i * 2}vh)`
                 }}
             >
                 <Title level='h3' className='pt-10'>{title}</Title>
@@ -91,7 +91,7 @@ const ParallaxCard = ({
                         >
                             <p className="pb-4 text-justify">{description}</p>
                             <Title level='h6'>Tech Used</Title>
-                            <p className="pb-4 flex flex-col">{tech}</p>
+                            <p className="pb-4 flex flex-col text-center">{tech}</p>
                         </motion.div>
                     </div>
                 </div>

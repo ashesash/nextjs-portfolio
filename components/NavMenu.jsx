@@ -3,18 +3,19 @@ import { motion, useCycle } from "framer-motion";
 import Link from "next/link";
 import { PiSunBold, PiMoonBold } from 'react-icons/pi'
 import { useTheme, resolvedTheme } from 'next-themes'
+import { useTheme, resolvedTheme } from 'next-themes'
 
 const sidebar = {
-    open: (height = 500) => ({
-        clipPath: `circle(${height * 2 + 200}px at 250px 40px)`,
+    open: (height = 1000) => ({
+        clipPath: `circle(${height * 2 + 200}px at calc(100% - 40px) 50px)`,
         transition: {
             type: "spring",
-            stiffness: 20,
+            stiffness: 30,
             restDelta: 2
         }
     }),
     closed: {
-        clipPath: "circle(20px at 200px 50px)",
+        clipPath: "circle(19px at calc(100% - 40px) 50px)",
         transition: {
             delay: 0.5,
             type: "spring",
@@ -24,22 +25,31 @@ const sidebar = {
     }
 };
 
-const Path = props => (
-    <motion.path
-        fill="transparent"
-        strokeWidth="3"
-        stroke="hsl(0, 0%, 18%)"
-        strokeLinecap="round"
-        {...props}
-    />
-);
+const Path = (props) => {
+    const { theme } = useTheme();
+
+    const strokeColor =
+        theme === 'dark' ? 'hsl(0, 0%, 80%)' : 'hsl(0, 0%, 5%)';
+
+    return (
+        <motion.path
+            fill="transparent"
+            strokeWidth="3"
+            stroke={strokeColor}
+            strokeLinecap="round"
+            {...props}
+        />
+    );
+};
 
 const MenuToggle = ({ toggle }) => (
     <button
         onClick={toggle}
-        className="absolute top-[32px] right-[22px] w-[38px] h-[38px] rounded-full bg-transparent cursor-pointer pointer-events-auto"
+        className="absolute top-[32px] right-[12px] w-[38px] h-[38px] rounded-full bg-transparent cursor-pointer pointer-events-auto"
+        aria-label="Burger Menu"
     >
-        <svg width="18" height="18" viewBox="0 0 18 20">
+        {/* burger */}
+        <svg width="18" height="18" viewBox="0 0 20 20">
             <Path
                 variants={{
                     closed: { d: "M 2 2.5 L 20 2.5" },
@@ -72,11 +82,11 @@ const MenuItem = ({ href, children }) => {
                     y: 0,
                     opacity: 1,
                     transition: {
-                        y: { stiffness: 1000, velocity: -100 }
+                        y: { stiffness: 1000, velocity: -300 }
                     }
                 },
                 closed: {
-                    y: 50,
+                    y: 40,
                     opacity: 0,
                     transition: {
                         y: { stiffness: 1000 }
@@ -87,7 +97,7 @@ const MenuItem = ({ href, children }) => {
             whileTap={{ scale: 0.95 }}
             className="mb-10 flex items-center cursor-pointer"
         >
-            <Link href={href} className="text-2xl text-black dark:text-slate-50">
+            <Link href={href} className="text-2xl">
                 {children}
             </Link>
         </motion.li>
@@ -104,8 +114,7 @@ const Navigation = ({ isOpen }) => (
                 transition: { staggerChildren: 0.05, staggerDirection: -1 }
             }
         }}
-        className={`p-6 absolute top-24 right-8 uppercase font-philosopher ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
-    >
+        className={`absolute flex flex-col sm:flex-row items-center sm:items-start sm:justify-center w-full h-screen sm:top-9 pt-36 sm:pt-0 gap-10 sm:gap-20 uppercase font-philosopher ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}    >
         <MenuItem href="/">Home</MenuItem>
         <MenuItem href="/#projects">Projects</MenuItem>
         <MenuItem href="/#about">About</MenuItem>
@@ -120,12 +129,15 @@ const DarkToggle = () => {
 
     if (!mounted) return null;
 
+    if (!mounted) return null;
+
     return (
         <button
-            className="fixed top-10 right-20 text-2xl pointer-events-auto z-50"
+            className="fixed top-8 right-20 text-xl pointer-events-auto z-50 bg-astro-blue-700 rounded-full p-2"
             onClick={() => setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')}
+            aria-label="Dark Mode Toggle"
         >
-            {mounted && (theme === 'dark' || resolvedTheme === 'dark') ? <PiSunBold/> : <PiMoonBold/>}
+            {mounted && (theme === 'dark' || resolvedTheme === 'dark') ? <PiSunBold /> : <PiMoonBold />}
         </button>
     );
 };
@@ -141,10 +153,10 @@ const NavMenu = () => {
                 initial={false}
                 animate={isOpen ? "open" : "closed"}
                 ref={containerRef}
-                className={`fixed top-0 right-0 bottom-0 w-[250px] pointer-events-none ${isOpen ? 'z-40' : 'z-30'}`}
+                className={`fixed top-0 right-0 bottom-0 w-full h-24 pointer-events-none ${isOpen ? 'z-40' : 'z-30'}`}
             >
                 <motion.div
-                    className={`absolute top-0 right-0 bottom-0 w-full bg-gradient-to-r from-astro-blue-200 to-blizzard-blue-400 dark:bg-gradient-to-r dark:from-blizzard-blue-950 dark:to-astro-blue-800 ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
+                    className={`absolute top-0 right-0 bottom-0 w-full max-sm:h-[100vh] bg-astro-blue-700 ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
                     variants={sidebar}
                 />
                 <Navigation isOpen={isOpen} />

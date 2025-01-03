@@ -149,7 +149,7 @@ const Contact = () => {
                     <div className="hover:scale-105 ease-in duration-300">
                         <Image src={ContactImg} alt="a cartoon image of me holding a coffee" />
                     </div>
-                    <div className="flex flex-row md:flex-col px-2 ">
+                    <div className="flex flex-row md:flex-col px-2 gap-3">
                         <a href="https://www.linkedin.com/in/aishwaryasahu/" target="_blank" rel="noreferrer" className='py-2'>
                             <IconButton className='bg-[length:200%] [animation:_gradient-move_3s_infinite_linear_reverse]'>
                                 <FaLinkedinIn />
@@ -177,7 +177,7 @@ const Contact = () => {
                         <input type="hidden" name="form-name" value="contact" />
                         <LabelInputContainer>
                             <div className="flex flex-col">
-                                <label className="uppercase text-sm py-2 font-philosopher">Name</label>
+                                <label for="Name" className="uppercase text-sm py-2 font-philosopher">Name</label>
                                 <Input
                                     name="Name"
                                     className={cn(
@@ -193,7 +193,7 @@ const Contact = () => {
                         </LabelInputContainer>
                         <LabelInputContainer>
                             <div className="flex flex-col py-2">
-                                <label className="uppercase text-sm py-2">Email</label>
+                                <label for="Email" className="uppercase text-sm py-2">Email</label>
                                 <Input
                                     name="Email"
                                     className={cn(
@@ -208,7 +208,7 @@ const Contact = () => {
                             </div>
                         </LabelInputContainer>
                         <LabelInputContainer>
-                            <label className="uppercase text-sm py-2">Message</label>
+                            <label for="Message" className="uppercase text-sm py-2">Message</label>
                             <InputMessage
                                 name="Message"
                                 className={cn(

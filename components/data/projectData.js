@@ -10,7 +10,7 @@ export const projectData = [
         title: 'Meydit',
         img: Meydit,
         projectUrl: 'https://meyd.it',
-        tech: 'ReactJS | Next.js | Redux | Stripe | AWS | Material UI',
+        tech: 'ReactJS | Next.js | AdonisJS | Redux | Stripe | AWS | PostgreSQL | MaterialUI',
         description: 'A marketplace for slow fashion. Users can connect with selected creatives on the platform to get bespoke pieces made for them in addition to other services to prolong lives their clothes.',
     },
     {

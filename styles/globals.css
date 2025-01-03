@@ -10,7 +10,7 @@ html {
 
 @layer base {
   body {
-    @apply bg-stone-50 text-slate-800 dark:bg-[#000515] dark:text-[#ecf0f3] tracking-wide 
+    @apply bg-stone-50 text-astro-blue-950 dark:bg-[#000515] dark:text-[#ecf0f3] tracking-wide 
   }
 
   h1, h2, h3, h4, h5, h6 {

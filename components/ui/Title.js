@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const Title = ({ level = "h1", children, className = "" }) => {
     const HeadingTag = level;
-    const baseStyles = "font-philosopher font-bold text-center tracking-widest uppercase snap-start";
+    const baseStyles = "font-philosopher font-bold text-center tracking-widest uppercase snap-start text-astro-blue-900";
     const sizeStyles = {
         h2: "md:text-9xl text-6xl",
         h3: "md:text-5xl text-3xl",
