@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@netlify/plugin-nextjs": "^5.9.2",
+    "@next/bundle-analyzer": "^15.1.3",
     "@radix-ui/react-label": "^2.1.1",
     "@react-three/drei": "^9.120.4",
     "@tabler/icons-react": "^3.26.0",

@@ -54,7 +54,7 @@ const ParallaxCard = ({
                 className={`h-3/4 py-4 m-4 rounded-xl sticky ${bgColors[i]} ${bgColorsDark[i]}`}
                 style={{
                     cardScale,
-                    top: `calc(2vh + ${i * 25}px)`
+                    top: `calc(1vh + ${i * 3}vh)`
                 }}
             >
                 <Title level='h3' className='pt-10'>{title}</Title>

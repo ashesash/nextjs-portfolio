@@ -1,7 +1,7 @@
 'use client'
 import React, { useRef } from 'react';
 import Link from 'next/link';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
 import Button from './Button';
 import Title from './Title';
 import HoverCard from './HoverCard';
@@ -44,7 +44,7 @@ const MobileCard = ({
         offset: ["start end", "end start"]
     });
 
-    const cardScale = useTransform(scrollYProgress, [i * .25, 1], [1, targetScale]);
+    // const cardScale = useTransform(scrollYProgress, [i * .25, 1], [1, targetScale]);
 
     const bgColors = ['bg-blizzard-blue-300', 'bg-astro-blue-400', 'bg-blue-whale-400', 'bg-congress-blue-400'];
     const bgColorsDark = ['dark:bg-blizzard-blue-950', 'dark:bg-astro-blue-950', 'dark:bg-blue-whale-950', 'dark:bg-congress-blue-950'];
@@ -62,7 +62,7 @@ const MobileCard = ({
                 variants={containerVariants}
                 style={{
                     // cardScale, 
-                    top: `calc(10vh + ${i * 20}px)`
+                    top: `calc(10vh + ${i * 2}vh)`
                 }}
             >
                 <motion.div
