@@ -30,8 +30,8 @@ const Main = () => {
     }, [roles.length, isInitialDelayComplete]);
 
     return (
-        <div id='home' className='w-full h-screen min-h-screen flex items-center justify-start font-philosopher'>
-            <div className='px-4 md:px-[2%] w-full'>
+        <div id='home' className='w-full h-screen min-h-screen flex items-center font-philosopher'>
+            <div className='max-sm:flex px-4 md:px-[2%] w-full'>
                 <div className='max-w-7xl mx-auto'>
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
@@ -56,7 +56,7 @@ const Main = () => {
                             delay: 1
                         }}
                     >
-                        <h1 className='py-2 leading-tight text-3xl sm:text-5xl md:text-6xl lg:text-[90px]'>
+                        <h1 className='py-2 leading-tight text-4xl md:text-6xl lg:text-[90px]'>
                             Software Engineer
                         </h1>
                     </motion.div>
@@ -73,7 +73,7 @@ const Main = () => {
                                         duration: 0.7,
                                         ease: "easeOut"
                                     }}
-                                    className='text-3xl sm:text-5xl md:text-6xl lg:text-[90px] h-full flex items-center'
+                                    className='text-3xl md:text-6xl lg:text-[90px] h-full flex items-center'
                                 >
                                     {roles[currentIndex].name}
                                 </motion.h1>

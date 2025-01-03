@@ -10,7 +10,7 @@ import Title from './ui/Title';
 import Button from './ui/Button';
 import IconButton from './ui/IconButton';
 import ContactImg from '../public/assets/contact.png';
-import { Input } from './ui/input';
+import { Input, InputMessage } from './ui/input';
 import { cn } from '@/lib/utils';
 
 const Contact = () => {
@@ -72,6 +72,76 @@ const Contact = () => {
         }
     };
 
+    //Form Validator
+    const [formErrors, setFormErrors] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const validateForm = (formData) => {
+        const errors = {};
+        const nameValue = formData.get('Name')?.trim();
+        const emailValue = formData.get('Email')?.trim();
+        const messageValue = formData.get('Message')?.trim();
+
+        if (!nameValue) {
+            errors.name = 'Name is required';
+        }
+
+        if (!emailValue) {
+            errors.email = 'Email is required';
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+            errors.email = 'Please enter a valid email';
+        }
+
+        if (!messageValue) {
+            errors.message = 'Message is required';
+        }
+
+        if (messageValue && (
+            messageValue.includes('http') ||
+            messageValue.split(' ').length < 2 ||
+            /^(.)\1+$/.test(messageValue) // repeated characters
+        )) {
+            errors.message = 'Please enter a valid message';
+        }
+
+        return errors;
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+
+        const formData = new FormData(e.target);
+        const errors = validateForm(formData);
+
+        if (Object.keys(errors).length > 0) {
+            setFormErrors(errors);
+            setIsSubmitting(false);
+            return;
+        }
+
+        try {
+            const response = await fetch('https://formspree.io/f/mnqrvbwy', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                e.target.reset();
+                setFormErrors({});
+            } else {
+                setFormErrors({ submit: 'Failed to send message. Please try again.' });
+            }
+        } catch (error) {
+            setFormErrors({ submit: 'Something went wrong. Please try again.' });
+        }
+
+        setIsSubmitting(false);
+    };
+
     const ContactForm = () => (
         <div className='flex min-h-screen w-screen items-center justify-center md:px-8 md:py-8 sticky top-0'>
             <div className='flex flex-col md:flex-row w-3/4 md:w-full max-w-6xl gap-10 items-center justify-center'>
@@ -103,29 +173,63 @@ const Contact = () => {
                     </div>
                 </div>
                 <div className="col-span-4 lg:col-span-2 w-full h-auto shadow-xl shadow-blizzard-blue-200 dark:shadow-astro-blue-900 bg-slate-50 dark:bg-slate-900 rounded-xl p-4">
-                    <form method="POST" name="ContactForm" action="https://formspree.io/f/mnqrvbwy" className='lg:p-4'>
+                    <form onSubmit={handleSubmit} name="ContactForm" className='lg:p-4'>
                         <input type="hidden" name="form-name" value="contact" />
                         <LabelInputContainer>
                             <div className="flex flex-col">
                                 <label className="uppercase text-sm py-2 font-philosopher">Name</label>
-                                <Input name="Name" className="border-2 rounded-lg p-3 flex border-gray-200" type="text" />
+                                <Input
+                                    name="Name"
+                                    className={cn(
+                                        "border-2 rounded-lg p-3 flex border-gray-200",
+                                        formErrors.name && "border-red-500"
+                                    )}
+                                    type="text"
+                                />
+                                {formErrors.name && (
+                                    <span className="text-red-500 text-sm mt-1">{formErrors.name}</span>
+                                )}
                             </div>
                         </LabelInputContainer>
                         <LabelInputContainer>
                             <div className="flex flex-col py-2">
                                 <label className="uppercase text-sm py-2">Email</label>
-                                <Input name="Email" className="border-2 rounded-lg p-3 flex border-gray-200" type="email" />
+                                <Input
+                                    name="Email"
+                                    className={cn(
+                                        "border-2 rounded-lg p-3 flex border-gray-200",
+                                        formErrors.email && "border-red-500"
+                                    )}
+                                    type="email"
+                                />
+                                {formErrors.email && (
+                                    <span className="text-red-500 text-sm mt-1">{formErrors.email}</span>
+                                )}
                             </div>
                         </LabelInputContainer>
                         <LabelInputContainer>
                             <label className="uppercase text-sm py-2">Message</label>
-                            <Input
-                                name="Message" className="border-2 rounded-lg p-3 flex border-gray-200" rows="5"
+                            <InputMessage
+                                name="Message"
+                                className={cn(
+                                    "border-2 rounded-lg p-3 flex border-gray-200",
+                                    formErrors.message && "border-red-500"
+                                )}
+                                style={{ height: '160px' }}
                             />
+                            {formErrors.message && (
+                                <span className="text-red-500 text-sm mt-1">{formErrors.message}</span>
+                            )}
                         </LabelInputContainer>
+                        {formErrors.submit && (
+                            <div className="text-red-500 text-sm mt-2">{formErrors.submit}</div>
+                        )}
                         <div className="mt-4 grid justify-items-stretch">
-                            <Button className="w-full text-3xl">
-                                Submit
+                            <Button
+                                className="w-full text-3xl"
+                                disabled={isSubmitting}
+                            >
+                                {isSubmitting ? 'Sending...' : 'Submit'}
                             </Button>
                         </div>
                     </form>
@@ -139,8 +243,8 @@ const Contact = () => {
         return (
             <footer className='w-full py-4 mt-8'>
                 <div className="flex flex-col items-center px-10 text-center text-sm text-slate-500">
-                        <div> © Crafted by yours truly with Next.js, Tailwind, Motion & Netlify. {date} </div>
-                    </div>
+                    <div> © Crafted by yours truly with Next.js, Tailwind, Motion & Netlify. {date} </div>
+                </div>
             </footer>
         )
     }
@@ -157,9 +261,11 @@ const Contact = () => {
                             </Title>
                         </div>
                         <ContactForm />
-                        <div className="flex justify-center">
-                            <Link href="/">
-                                <IconButton className='bg-[length:200%] [animation:_gradient-move_3s_infinite_linear_reverse]'>
+                        <div className="flex justify-center pt-10">
+                            <Link href="/#home">
+                                <IconButton
+                                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                                    className='bg-[length:200%] hover:[animation:_gradient-move_3s_infinite_linear_reverse]'>
                                     <HiOutlineChevronDoubleUp size={20} className="m-auto" />
                                 </IconButton>
                             </Link>
@@ -196,9 +302,9 @@ const Contact = () => {
                                     transition={{ duration: 0.3 }}
                                 >
                                     <ContactForm />
-                                    <div className="flex justify-center -translate-y-20">
-                                        <Link href="/">
-                                            <IconButton className='bg-[length:200%] [animation:_gradient-move_3s_infinite_linear_reverse]'>
+                                    <div className="flex justify-center md:-translate-y-20">
+                                        <Link href="/#home">
+                                            <IconButton className='bg-[length:200%] hover:[animation:_gradient-move_3s_infinite_linear_reverse]'>
                                                 <HiOutlineChevronDoubleUp size={20} className="m-auto" />
                                             </IconButton>
                                         </Link>

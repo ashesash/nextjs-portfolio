@@ -38,7 +38,7 @@ export const projectData = [
         gitUrl: 'https://github.com/ashesash/react-mentoring-platform',
         // projectUrl: '',
         tech: 'HTML | CSS | React | Django',
-        description: 'A platform for registering workshops.',
+        description: 'A platform for workshops. It allows for users to organise and register their own workshop or if they would like to volunteer for another event, they can sign up.',
     },
     // {
     //     id: 5,

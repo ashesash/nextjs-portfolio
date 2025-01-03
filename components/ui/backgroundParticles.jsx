@@ -35,7 +35,6 @@ const BackgroundParticles = () => {
     ctx.fillStyle = '#0079b4';
     ctx.fill();
 
-    // Create soft gradient for better look
     const gradient = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
     gradient.addColorStop(0, '#b2edff');
     gradient.addColorStop(1, 'rgba(255,255,255,0)');

@@ -52,7 +52,7 @@ const MobileCard = ({
     return (
         <div className='min-h-screen sticky top-0'>
             <motion.div
-                className={`h-[70vh] px-4 py-4 flex flex-col items-center my-10 sticky rounded-xl m-4 ${bgColors[i]} ${bgColorsDark[i]}`}
+                className={`min-h-fit h-[80vh] sm:h-[100vw] px-4 py-4 flex flex-col items-center my-10 sticky rounded-xl m-4 ${bgColors[i]} ${bgColorsDark[i]}`}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{
@@ -62,11 +62,11 @@ const MobileCard = ({
                 variants={containerVariants}
                 style={{
                     // cardScale, 
-                    top: `calc(10vh + ${i * 2}vh)`
+                    top: `calc(10vh + ${i * 20}px)`
                 }}
             >
                 <motion.div
-                    className="w-full aspect-video mb-14"
+                    className="w-full aspect-video mb-8"
                     variants={itemVariants}
                 >
                     <HoverCard
