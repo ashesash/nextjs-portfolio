@@ -12,20 +12,24 @@ const BackgroundParticles = () => {
       75,
       window.innerWidth / window.innerHeight,
       0.1,
-      1000
+      10
     );
     camera.position.z = 5;
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      alpha: true,
+      powerPreference: "high-performance"
+    });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setClearColor(0x000000, 0); // Transparent background
-    mountRef.current.appendChild(renderer.domElement);
+    mountRef.current?.appendChild(renderer.domElement);
 
     // Create circular texture for particles
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
-    const size = 64;
+    const size = 32;
     canvas.width = size;
     canvas.height = size;
 
@@ -44,7 +48,7 @@ const BackgroundParticles = () => {
     const texture = new THREE.CanvasTexture(canvas);
 
     // Create Particles
-    const particleCount = 500;
+    const particleCount = 350;
     const particles = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     for (let i = 0; i < particleCount * 3; i++) {
@@ -55,12 +59,13 @@ const BackgroundParticles = () => {
     // Particle material
     const particleMaterial = new THREE.PointsMaterial({
       color: 0x12688c,
-      size: 0.1,
+      size: 0.15,
       map: texture,
       transparent: true,
       opacity: 0.85,
       blending: THREE.AdditiveBlending,
-      depthWrite: false
+      depthWrite: false,
+      sizeAttenuation: true
     });
 
     const particleSystem = new THREE.Points(particles, particleMaterial);

@@ -48,7 +48,7 @@ const Main = () => {
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, y: 50 }}
+                        initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{
                             duration: 1,
@@ -56,24 +56,24 @@ const Main = () => {
                             delay: 1
                         }}
                     >
-                        <h1 className='py-2 leading-tight text-4xl md:text-6xl lg:text-[90px]'>
+                        <h1 className='py-2 leading-tight text-4xl md:text-6xl lg:text-8xl'>
                             Software Engineer
                         </h1>
                     </motion.div>
 
-                    <div className='w-full h-16 sm:h-20 md:h-24 overflow-hidden relative'>
+                    <div className='w-full py-2 leading-normal overflow-hidden relative'>
                         <AnimatePresence mode="popLayout">
                             {isInitialDelayComplete && (
                                 <motion.h1
                                     key={currentIndex}
-                                    initial={{ y: 50, opacity: 1 }}
+                                    initial={{ y: 40, opacity: 1 }}
                                     animate={{ y: -1, opacity: 1 }}
                                     exit={{ y: -51, opacity: 0 }}
                                     transition={{
                                         duration: 0.7,
                                         ease: "easeOut"
                                     }}
-                                    className='text-3xl md:text-6xl lg:text-[90px] h-full flex items-center'
+                                    className='text-3xl md:text-6xl lg:text-8xl flex items-center'
                                 >
                                     {roles[currentIndex].name}
                                 </motion.h1>
