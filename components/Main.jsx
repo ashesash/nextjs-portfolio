@@ -31,7 +31,7 @@ const Main = () => {
 
     return (
         <div id='home' className='w-full h-screen min-h-screen flex items-center font-philosopher'>
-            <div className='max-sm:flex px-4 md:px-[2%] w-full'>
+            <div className='max-sm:flex px-4 md:px-[2%] min-w-max'>
                 <div className='max-w-7xl mx-auto'>
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
@@ -46,7 +46,6 @@ const Main = () => {
                             <span className='bg-gradient-to-r  from-astro-blue-200 via-blizzard-blue-600 to-astro-blue-200 bg-clip-text text-transparent bg-[length:200%] [animation:_gradient-move_3s_infinite_linear_reverse]'> Ash!</span>
                         </h1>
                     </motion.div>
-
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -60,7 +59,6 @@ const Main = () => {
                             Software Engineer
                         </h1>
                     </motion.div>
-
                     <div className='w-full py-2 leading-normal overflow-hidden relative'>
                         <AnimatePresence mode="popLayout">
                             {isInitialDelayComplete && (
@@ -73,7 +71,7 @@ const Main = () => {
                                         duration: 0.7,
                                         ease: "easeOut"
                                     }}
-                                    className='text-3xl md:text-6xl lg:text-8xl flex items-center'
+                                    className='text-3xl md:text-6xl lg:text-8xl flex items-center w-full'
                                 >
                                     {roles[currentIndex].name}
                                 </motion.h1>

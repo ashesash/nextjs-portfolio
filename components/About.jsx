@@ -28,9 +28,9 @@ const About = () => {
     const scale = useTransform(scrollYProgress, [0, 0.3, 0.5], [1, 30, 80]);
     const textOpacity = useTransform(scrollYProgress, [0.2, 0.4], [1, 0]);
     const aboutScale = useTransform(smoothScrollProgress, [0.3, 0.8], [0, 1]);
-    const aboutOpacity1 = useTransform(smoothScrollProgress, [0.2, 0.4], [0, 1]);
-    const aboutOpacity2 = useTransform(smoothScrollProgress, [0.5, 0.7], [0, 1]);
-    const aboutOpacity3 = useTransform(smoothScrollProgress, [0.7, 0.9], [0, 1]);
+    const aboutOpacity1 = useTransform(smoothScrollProgress, [0.2, 0.5], [0, 1]);
+    const aboutOpacity2 = useTransform(smoothScrollProgress, [0.4, 0.7], [0, 1]);
+    const aboutOpacity3 = useTransform(smoothScrollProgress, [0.6, 0.9], [0, 1]);
 
     const [isMobile, setIsMobile] = useState(false);
 
@@ -47,7 +47,7 @@ const About = () => {
         return (
             <div id="about" className="relative w-full min-h-[200vh]" ref={containerRef}>
                 <div className="min-h-screen">
-                    <div className="sticky top-14 w-full grid place-items-center z-10 my-20">
+                    <div className="sticky top-14 w-full grid place-items-center z-10 my-10 md:my-20">
                         <Title level="h2">About</Title>
                     </div>
                 </div>

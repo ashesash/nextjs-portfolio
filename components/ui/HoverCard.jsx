@@ -1,5 +1,6 @@
 import { cubicBezier, motion } from 'framer-motion';
 import React, { useRef, useState } from 'react';
+import { resolvedTheme } from 'next-themes'
 import Image from 'next/image';
 
 function HoverCard({ image, header, content, className = "", imageClassName = "" }) {
@@ -50,7 +51,7 @@ function HoverCard({ image, header, content, className = "", imageClassName = ""
             }}
         >
             <motion.div
-                className="relative rounded-lg overflow-hidden"
+                className="relative rounded-lg overflow-hidden hover:shadow-blizzard-blue-400 dark:shadow-astro-blue-900"
                 animate={{
                     rotateY: isHovered ? (mouseX / (cardRef.current?.offsetWidth ?? 1)) * -30 : 0,
                     rotateX: isHovered ? (mouseY / (cardRef.current?.offsetHeight ?? 1)) * 30 : 0,
@@ -61,9 +62,13 @@ function HoverCard({ image, header, content, className = "", imageClassName = ""
                     ease: cubicBezier[0.23, 1, 0.32, 1],
                 }}
                 style={{
-                    boxShadow: isHovered
-                        ? 'grey 0 0 30px 5px, white 0 0 0 1px, #2e49f5 0 30px 60px 0'
-                        : ' rgb(38, 57, 77) 0px 20px 30px -10px'
+                    boxShadow: resolvedTheme === 'dark'
+                    ? (isHovered 
+                        ? 'grey 0 0 30px 5px, #0b74be 0 20px 40px 0'  // Dark mode + hovered
+                        : '#f1f8fe 0px 20px 40px -10px') // Dark mode + not hovered
+                    : (isHovered
+                        ? 'grey 0 0 30px 5px, #0d4e7f 0px 20px 30px -10px' // Light mode + hovered
+                        : '#0b2a46 0px 20px 40px -10px')              // Light mode + not hovered
                 }}
             >
                     {image && (
@@ -71,61 +76,14 @@ function HoverCard({ image, header, content, className = "", imageClassName = ""
                             <Image
                                 src={image}
                                 alt={header || "Project Image"}
-                                layout="intrinsic"
+                                width={1000} 
+                                height={800} 
                                 priority
-                                className={`object-cover ${imageClassName}`}
+                                className={`object-fit ${imageClassName}`}
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             />
                         </div>
                     )}
-                {/* {header && (
-                    <motion.div
-                        className="absolute bottom-0 p-5 text-white"
-                        animate={{
-                            y: isHovered ? '0%' : '40%',
-                        }}
-                        transition={{
-                            duration: 0.6,
-                            ease: [0.215, 0.61, 0.355, 1],
-                            delay: isHovered ? 0 : 1.6,
-                        }}
-                    >
-                        <div className="relative z-10">
-                            <h1 className="text-2xl font-bold" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
-                                {header}
-                            </h1>
-                            {content && (
-                                <motion.p
-                                    className="mt-2"
-                                    style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}
-                                    animate={{
-                                        opacity: isHovered ? 1 : 0,
-                                    }}
-                                    transition={{
-                                        duration: 0.6,
-                                        ease: [0.215, 0.61, 0.355, 1],
-                                        delay: isHovered ? 0 : 1.6,
-                                    }}
-                                >
-                                    {content}
-                                </motion.p>
-                            )}
-                        </div>
-                        <motion.div
-                            className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black/60"
-                            style={{ mixBlendMode: 'overlay' }}
-                            animate={{
-                                opacity: isHovered ? 1 : 0,
-                                y: isHovered ? '0%' : '100%',
-                            }}
-                            transition={{
-                                duration: 5,
-                                ease: [0.445, 0.05, 0.55, 0.95],
-                                delay: isHovered ? 0 : 1,
-                            }}
-                        />
-                    </motion.div>
-                )} */}
             </motion.div>
         </div>
     );

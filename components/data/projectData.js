@@ -2,7 +2,7 @@ import Blog from '/public/assets/project/news.png';
 import Meydit from '/public/assets/project/meydit.png';
 import AI from '/public/assets/project/aiTravelbot.png';
 import Learnable from '/public/assets/project/learnable.png';
-import Portfolio from '/public/assets/project/portfolio.png';
+// import Portfolio from '/public/assets/project/portfolio.png';
 
 export const projectData = [
     {
@@ -36,7 +36,7 @@ export const projectData = [
         title: 'Workshop Sign-up Platform',
         img: Learnable,
         gitUrl: 'https://github.com/ashesash/react-mentoring-platform',
-        // projectUrl: '',
+        projectUrl: 'https://github.com/ashesash',
         tech: 'HTML | CSS | React | Django',
         description: 'A platform for workshops. It allows for users to organise and register their own workshop or if they would like to volunteer for another event, they can sign up.',
     },
